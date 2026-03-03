@@ -1,0 +1,3392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Admin Guide | Tamil Information Centre</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-bg: #f6e3c5;
+            --accent-dark: #0f2540;
+            --accent-muted: #bfa98b;
+            --card-bg: #f6ece0;
+            --hover-bg: #e6d3bd;
+            --border-radius: 12px;
+            --font-serif: "Georgia", "Times New Roman", serif;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--accent-dark);
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.8;
+        }
+
+        .container { max-width: 1200px; margin: 60px auto; padding: 0 30px; }
+
+        h1 {
+            color: var(--accent-dark);
+            font-weight: bold;
+            border-bottom: 5px solid var(--accent-muted);
+            padding-bottom: 25px;
+            margin-bottom: 60px;
+            text-align: center;
+            font-size: 2.8rem;
+        }
+
+        .sidebar {
+            background: var(--accent-dark);
+            color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 50px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .sidebar h4 { 
+            color: var(--accent-muted); 
+            margin-bottom: 30px; 
+            font-family: var(--font-serif); 
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .menu-btn {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 18px 22px;
+            margin-bottom: 14px;
+            background: rgba(255,255,255,0.09);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 1.15rem;
+            cursor: pointer;
+            transition: all 0.35s ease;
+        }
+
+        .menu-btn:hover { 
+            background: var(--hover-bg); 
+            color: var(--accent-dark); 
+            transform: translateX(10px); 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .menu-btn i { margin-right: 18px; font-size: 1.5rem; width: 34px; text-align: center; }
+
+        .modal-content {
+            border-radius: var(--border-radius);
+            border: 4px solid var(--accent-muted);
+            background: var(--card-bg);
+        }
+
+        .modal-header {
+            background: var(--accent-dark);
+            color: white;
+            border-top-left-radius: calc(var(--border-radius) - 4px);
+            border-top-right-radius: calc(var(--border-radius) - 4px);
+            padding: 25px 30px;
+        }
+
+        .modal-title { font-size: 1.6rem; font-weight: 600; }
+
+        .modal-body { font-size: 1.1rem; padding: 40px; }
+
+        .sub-section { 
+            margin: 60px 0; 
+            padding: 40px; 
+            background: rgba(191,169,139,0.06); 
+            border-radius: 16px; 
+            border-left: 10px solid var(--accent-muted); 
+        }
+
+        .sub-section h4 { 
+            font-size: 1.6rem; 
+            margin-bottom: 25px; 
+            color: var(--accent-dark);
+        }
+
+        .sub-section h5 { 
+            font-size: 1.35rem; 
+            margin: 35px 0 20px; 
+            color: #1a2b3c;
+        }
+
+        .step-icon { color: #28a745; margin-right: 14px; font-size: 1.3rem; }
+
+        .action-icon { font-size: 1.4rem; margin: 0 6px; }
+
+        .placeholder-img {
+            background: #f8f9fa;
+            border: 4px dashed var(--accent-muted);
+            padding: 80px 50px;
+            text-align: center;
+            border-radius: 16px;
+            margin: 45px 0;
+            font-style: italic;
+            color: #555;
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+        .tips-box {
+            background: #e9f5ff;
+            border-left: 8px solid #0d6efd;
+            padding: 28px;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+
+        .tips-box i { color: #0d6efd; margin-right: 16px; font-size: 1.5rem; }
+
+        .warning-box {
+            background: #fff5f5;
+            border-left: 8px solid #dc3545;
+            padding: 28px;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+
+        .warning-box i { color: #dc3545; margin-right: 16px; font-size: 1.5rem; }
+
+        footer {
+            text-align: center;
+            margin-top: 120px;
+            padding: 50px 0;
+            color:#3a2c19;
+            font-size: 1.4rem;
+            border-top: 3px solid var(--accent-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1><i class="fas fa-book-open me-3"></i> Master Admin Guide<br><small>Tamil Information Centre Admin Panel</small></h1>
+
+<div class="row justify-content-center mb-5 align-items-stretch g-4">
+    <!-- Left - Sidebar -->
+    <div class="col-lg-4 col-md-5 d-flex">
+        <div class="sidebar w-100">
+            <h4><i class="fas fa-list-ul me-2"></i> Main Menu</h4>
+            
+            <button class="menu-btn" data-bs-toggle="modal" data-bs-target="#modalDashboard">
+                <i class="fas fa-tachometer-alt"></i> Dashboard
+            </button>
+            <button class="menu-btn" data-bs-toggle="modal" data-bs-target="#modalLogin">
+                <i class="fas fa-sign-in-alt"></i> Admin Login Guide
+            </button>
+            <button class="menu-btn" data-bs-toggle="modal" data-bs-target="#modalCollection">
+                <i class="fas fa-folder-open"></i> Collection
+            </button>
+            <button class="menu-btn" data-bs-toggle="modal" data-bs-target="#modalHeritage">
+                <i class="fas fa-landmark"></i> Heritage Collection
+            </button>
+            <button class="menu-btn" data-bs-toggle="modal" data-bs-target="#modalPublications">
+                <i class="fas fa-book-reader"></i> Publications
+            </button>
+            <button class="menu-btn" data-bs-toggle="modal" data-bs-target="#modalVirtual">
+                <i class="fas fa-chalkboard-teacher"></i> Virtual Exhibition
+            </button>
+            <button class="menu-btn" data-bs-toggle="modal" data-bs-target="#modalEmployee">
+                <i class="fas fa-users-cog"></i> Employee
+            </button>
+            <button class="menu-btn" data-bs-toggle="modal" data-bs-target="#modalMembers">
+                <i class="fas fa-user-friends"></i> Members
+            </button>
+            <button class="menu-btn" data-bs-toggle="modal" data-bs-target="#modalEnquiries">
+                <i class="fas fa-envelope-open-text"></i> Enquiries 
+                <span class="badge bg-warning text-dark ms-2">12</span>
+            </button>
+            <button class="menu-btn" data-bs-toggle="modal" data-bs-target="#modalSupport">
+                <i class="fas fa-headset"></i> Support 
+                <span class="badge bg-info ms-2">5</span>
+            </button>
+        </div>
+    </div>
+
+<div class="col-lg-8 col-md-7 d-flex">
+    <div class="card p-5 shadow-lg w-100 d-flex flex-column" 
+         style="background: var(--card-bg); border-radius: var(--border-radius);">
+        
+        <h3 class="mb-4"><i class="fas fa-handshake me-2"></i> Welcome, Master Admin!</h3>
+        
+        <p class="lead mb-5" style="font-size: 1.3rem; line-height: 1.7;">
+            This is a simple guide for new admins.<br><br>
+            → Click any button in the left menu<br>
+            → A popup will open with clear, step-by-step help for that section<br><br>
+            Everything is explained slowly — no rush, no previous knowledge needed.
+        </p>
+
+        <div class="alert alert-info border-0 p-4 mb-5" style="background: rgba(191,169,139,0.25); font-size: 1.2rem;">
+            <i class="fas fa-lightbulb me-3 fa-2x float-start mt-1"></i>
+            <strong>5 quick rules:</strong><br><br>
+            1. Use a computer (not phone) — much easier<br>
+            2. Read each step fully before doing it<br>
+            3. Always logout when finished<br>
+            4. Never share your password<br>
+            5. Mistakes can usually be fixed later
+        </div>
+
+        <!-- Simple filler text that extends naturally to match sidebar height -->
+        <div class="mt-4 mb-4">
+            <h5 class="mb-3"><i class="fas fa-info-circle me-2 text-primary"></i> Good to know</h5>
+            <p style="font-size: 1.1rem; line-height: 1.8;">
+                • All important actions have a help popup — just click the menu item again if you forget something.<br>
+                • Start with the <strong>Admin Login Guide</strong> if you're new.<br>
+                • Main work happens in <strong>Collection</strong> and <strong>Heritage Collection</strong>.<br>
+                • Check <strong>Enquiries</strong> and <strong>Support</strong> for messages from users.<br>
+                • Use <strong>Employee</strong> section when managing staff.
+            </p>
+        </div>
+
+        <!-- Gentle bottom note pushed down with mt-auto -->
+        <div class="mt-auto pt-4 text-center text-muted small">
+            Take it slow — you're doing great!<br>
+            Help is always one click away in the left menu.
+        </div>
+
+    </div>
+</div>
+ <!-- Login / Admin Portal Modal – paste this block -->
+<div class="modal fade" id="modalLogin" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fas fa-sign-in-alt me-3"></i> Admin Login / Portal – Extremely Important First Step</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="alert alert-primary mb-5 p-4" style="font-size: 1.2rem; border-left-width: 8px;">
+                    <i class="fas fa-info-circle me-3 fa-2x float-start mt-1"></i>
+                    <strong>What is the Login page?</strong><br><br>
+                    This is the secure entry point to the entire Master Admin Panel.<br>
+                    Every time you want to manage content (collections, heritage, publications, exhibitions, enquiries, etc.), you must log in here first.<br>
+                    URL: https://tamilinformationcentere.org/admin/login<br>
+                    It protects your site — only people with correct email + password can access the admin area.
+                </div>
+
+                <p class="lead text-center mb-5" style="font-size: 1.4rem;">
+                    <i class="fas fa-shield-alt me-3"></i>
+                    How to Log In – Step-by-Step (Very Important!)
+                </p>
+
+                <div class="sub-section">
+                    <h4><i class="fas fa-key text-success fa-2x"></i> Logging In Securely</h4>
+                    
+                    <ol class="list-unstyled">
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            <strong>Open the login page</strong><br>
+                            Go to: https://tamilinformationcentere.org/admin/login<br>
+                            (or click any admin link → it redirects here if not logged in)
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            <strong>Enter Email Address</strong><br>
+                            In the "Email Address" field:<br>
+                            Type your admin email exactly (e.g. admin@example.com)<br>
+                            Case-sensitive — usually lowercase<br>
+                            Double-check spelling — wrong email = cannot log in
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            <strong>Enter Password</strong><br>
+                            In the "Password" field:<br>
+                            Type your secret password<br>
+                            • Password is hidden (dots or asterisks)<br>
+                            • Case-sensitive<br>
+                            • If forgotten → contact website owner/developer (no reset link shown)
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            <strong>Click Sign In</strong><br>
+                            Click the big purple/blue <strong>Sign In</strong> button<br>
+                            If correct → you enter the admin dashboard<br>
+                            If wrong → shows red error like "Invalid credentials" — try again carefully
+                        </li>
+                    </ol>
+
+<div class="placeholder-img mt-5">
+    <figure class="figure">
+        <img src="./image/Capture.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="Admin Login Interface">
+        <figcaption class="figure-caption text-center">
+            Full view of the Admin Login page  
+           
+        </figcaption>
+    </figure>
+</div>
+                    <p class="mb-4 fw-bold fs-5 mt-5">Important Security Rules – Read Carefully!</p>
+                    <div class="warning-box mb-4">
+                        <i class="fas fa-exclamation-triangle fa-2x"></i> 
+                        <strong>Never share your password</strong> — not with anyone, even friends/family/colleagues.<br>
+                        <strong>Use a strong password</strong> — at least 12 characters, mix letters/numbers/symbols.<br>
+                        <strong>Log out after use</strong> — especially on shared computers (click your name top-right → Logout).<br>
+                        <strong>Use computer/laptop</strong> — avoid phone/tablet (harder to type securely).<br>
+                        <strong>Check URL</strong> — always starts with https://tamilinformationcentere.org/admin — never click suspicious links.<br>
+                        <strong>If suspicious activity</strong> — change password immediately and inform owner.
+                    </div>
+
+                    <p class="mb-4 fw-bold fs-5 mt-5">What to do if login fails</p>
+                    <ol class="list-unstyled">
+                        <li class="mb-4">
+                            <i class="fas fa-times-circle text-danger fa-lg"></i> 
+                            Double-check email and password spelling/case
+                        </li>
+                        <li class="mb-4">
+                            <i class="fas fa-times-circle text-danger fa-lg"></i> 
+                            Make sure Caps Lock is off
+                        </li>
+                        <li class="mb-4">
+                            <i class="fas fa-times-circle text-danger fa-lg"></i> 
+                            Try on different browser/device
+                        </li>
+                        <li class="mb-4">
+                            <i class="fas fa-times-circle text-danger fa-lg"></i> 
+                            If still fails → contact website owner/developer (via WhatsApp/email) — they can reset or check account
+                        </li>
+                        <li class="mb-4">
+                            <i class="fas fa-times-circle text-danger fa-lg"></i> 
+                            Never try random passwords many times — may lock account temporarily
+                        </li>
+                    </ol>
+
+                    <div class="tips-box mt-5">
+                        <i class="fas fa-lightbulb fa-2x"></i> <strong>Extra Tips for Safe Login:</strong>
+                        <ul class="mb-0">
+                            <li>Bookmark the login page — https://tamilinformationcentere.org/admin/login</li>
+                            <li>Use password manager (e.g. browser built-in or LastPass) — never write it down</li>
+                            <li>After login → check top-right: your name should appear (Admin)</li>
+                            <li>Always log out when finished — click your name → Logout</li>
+                            <li>If you see "Secured connection" lock icon — good (https)</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+        <!-- Collection Modal – all 4 subsections properly arranged -->
+        <div class="modal fade" id="modalCollection" tabindex="-1">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><i class="fas fa-folder-open me-3"></i> Collection Section – Extremely Detailed Guide</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="alert alert-primary mb-5 p-4" style="font-size: 1.2rem; border-left-width: 8px;">
+                            <i class="fas fa-info-circle me-3 fa-2x float-start mt-1"></i>
+                            <strong>What is the Collection section?</strong><br><br>
+                            This is the heart of your admin panel. Here you create, view, edit, delete and organize all groups of content (collections) that appear on the public website.<br>
+                            Each collection is like a folder containing PDFs, images, descriptions — visitors see them under categories like "Human Rights & Justice", "Displacement & Recovery", etc.<br>
+                            Everything you do here directly affects what the public sees on tamilinformationcentere.org.
+                        </div>
+
+                        <p class="lead text-center mb-5" style="font-size: 1.4rem;">
+                            <i class="fas fa-th-large me-3"></i>
+                            Collection has <strong>4 main sub-sections</strong>.<br>
+                            Below are very long, step-by-step explanations for each one.
+                        </p>
+
+                        <!-- 1. Add Collection -->
+                        <div class="sub-section">
+                            <h4><i class="fas fa-plus-circle text-success fa-2x"></i> 1. Add Collection – Create a Brand New Collection</h4>
+                            
+                            <p class="mb-4 fw-bold fs-5">What this section is for:</p>
+                            <p style="font-size: 1.15rem;">
+                                This is where you make a new "folder" or "album" of content.<br>
+                                One collection = one topic (example: all reports about refugees in one place).<br>
+                                After you create it and set it to Public, visitors on tamilinformationcentere.org can see and download the PDFs/images.
+                            </p>
+
+                            <p class="mb-4 fw-bold fs-5">Very detailed step-by-step instructions:</p>
+                            <ol class="list-unstyled">
+                                <li class="mb-5">
+                                    <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                                    <strong>Find the menu</strong><br>
+                                    Look at the left dark sidebar.<br>
+                                    Find the word <strong>Collection</strong> (it has a folder icon).<br>
+                                    Click the small arrow ▶ next to it to open sub-menu.<br>
+                                    Then click <strong>Add Collection</strong> (or sometimes it says "+ Add New Collection").
+                                </li>
+                                <li class="mb-5">
+                                    <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                                    <strong>Choose Main Category *</strong><br>
+                                    This is a dropdown box (you click it and a list appears).<br>
+                                    Select one category that best matches your content.<br>
+                                    <strong>Examples:</strong> "Human Rights & Justice", "Governance & Institutions", "Displacement & Recovery".<br>
+                                    <strong>Why important?</strong> This decides under which section the collection will show on the public website.<br>
+                                    <strong>If no good category exists?</strong> First go to "Manage Category" (section 3 below) and create a new one.
+                                </li>
+                                <li class="mb-5">
+                                    <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                                    <strong>Collection Title *</strong><br>
+                                    Type a clear name in this box.<br>
+                                    <strong>Good titles (examples):</strong><br>
+                                    • Refugee Rights Reports 2024–2025<br>
+                                    • Conflict and Peace Building Documents<br>
+                                    • Media Coverage on Displacement<br>
+                                    <strong>Rules:</strong> Maximum 255 characters (about 40–50 words).<br>
+                                    <strong>Tip:</strong> Make it understandable even for someone who doesn't know Tamil.
+                                </li>
+                                <li class="mb-5">
+                                    <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                                    <strong>Title Image</strong><br>
+                                    Click "Choose file" or "Browse".<br>
+                                    Select one beautiful cover photo from your computer.<br>
+                                    <strong>Recommended:</strong> size at least 800×500 pixels, JPG/PNG/WEBP format, max 5 MB.<br>
+                                    <strong>Why have a cover image?</strong> It makes the collection look attractive on the website homepage and category pages.
+                                </li>
+                                <li class="mb-5">
+                                    <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                                    <strong>Description *</strong><br>
+                                    This is the biggest text box.<br>
+                                    Write everything visitors should know about this collection.<br>
+                                    Use the toolbar at the top to:
+                                    • Make text <strong>bold</strong> or <em>italic</em><br>
+                                    • Change colors<br>
+                                    • Add bullet points or numbered lists<br>
+                                    • Insert links (if needed)<br>
+                                    <strong>Good structure:</strong><br>
+                                    1st paragraph: short summary (2–3 sentences)<br>
+                                    2nd–3rd paragraph: more details<br>
+                                    Last lines: what kind of documents are inside
+                                </li>
+                                <li class="mb-5">
+                                    <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                                    <strong>PDF Document</strong><br>
+                                    Click "Choose file" → select your main PDF.<br>
+                                    <strong>Rules:</strong> max 50 MB, PDF format only.<br>
+                                    <strong>Important:</strong> If you set Access Type to Public, this PDF will be downloadable by everyone.<br>
+                                    <strong>Tip:</strong> If PDF is bigger than 50 MB, use free online compressor (smallpdf.com or ilovepdf.com) first.
+                                </li>
+                                <li class="mb-5">
+                                    <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                                    <strong>Access Type *</strong><br>
+                                    Choose one radio button:<br>
+                                    • <strong>Public</strong> → anyone on the internet can see and download<br>
+                                    • <strong>Private</strong> → only logged-in admins or selected members can see<br>
+                                    <strong>Recommendation:</strong> Use Public for most collections unless the content is sensitive/confidential.
+                                </li>
+                                <li class="mb-5">
+                                    <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                                    <strong>Collection Images</strong><br>
+                                    Click "Choose files" → select up to 10 photos from your computer.<br>
+                                    <strong>Rules:</strong> each image max 5 MB, formats JPG/PNG/GIF/WEBP.<br>
+                                    <strong>Best practice:</strong> Use photos that relate to the topic (maps, people, events, documents scans).<br>
+                                    These images will appear as a photo gallery on the collection page.
+                                </li>
+                                <li class="mb-5">
+                                    <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                                    <strong>Final step – Save</strong><br>
+                                    Scroll all the way down.<br>
+                                    Check everything one last time.<br>
+                                    Click the large blue button <strong>Create Collection</strong>.<br>
+                                    <strong>What happens next?</strong><br>
+                                    • Success message appears<br>
+                                    • You are usually taken to the new collection's detail page or back to list<br>
+                                    • If Public → it should now appear on the public website (refresh the site to check)
+                                </li>
+                            </ol>
+
+                            <div class="tips-box">
+                                <i class="fas fa-lightbulb fa-2x"></i> <strong>Extra Helpful Tips (please read):</strong>
+                                <ul class="mb-0" style="font-size: 1.1rem;">
+                                    <li>Take 2 minutes to double-check everything before clicking Create</li>
+                                    <li>Save your work often (especially long descriptions) – copy to Notepad first if nervous</li>
+                                    <li>Use meaningful file names before upload (example: refugee-report-2025.pdf)</li>
+                                    <li>After creating → open the public website in new tab and search for your new collection to see how visitors will experience it</li>
+                                    <li>If upload fails → most common reasons: file too big / wrong format / internet slow</li>
+                                </ul>
+                            </div>
+
+                            <div class="warning-box mt-5">
+                                <i class="fas fa-exclamation-triangle fa-2x"></i> <strong>Things that can go wrong (and how to avoid):</strong>
+                                <ul class="mb-0" style="font-size: 1.1rem;">
+                                    <li>Forgetting * fields → system shows red error and won't save</li>
+                                    <li>Uploading 20 MB image → fails – always check file size first</li>
+                                    <li>Setting to Private by mistake → nobody can see it on website</li>
+                                    <li>Very long title → looks bad on mobile phones</li>
+                                    <li>No images/PDF → collection looks empty and boring</li>
+                                </ul>
+                            </div>
+
+                            <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture13.jpeg" 
+             class="figure-img img-fluid rounded" 
+             alt=" Add  Collection Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the"Add Collection / Create New Collection" main page
+        </figcaption>
+    </figure>
+</div>
+
+                        </div>
+
+                        <!-- 2. View Collection -->
+                        <div class="sub-section">
+                            <h4><i class="fas fa-eye text-primary fa-2x"></i> 2. View Collection – See, Open, Edit & Delete Existing Collections</h4>
+                            
+                            <p class="mb-4 fw-bold fs-5">What this section is for:</p>
+                            <p style="font-size: 1.15rem;">
+                                This is the place where you look at all the collections you (or others) have already created.<br>
+                                You can:
+                                - See a list of everything
+                                - Open any collection to see full details (what visitors see on the website)
+                                - Edit anything (change title, description, images, PDF, etc.)
+                                - Delete collections you no longer want<br><br>
+                                Most of your daily work will happen here — checking, updating, or removing old content.
+                            </p>
+
+                            <p class="mb-4 fw-bold fs-5">Part A – List View (Manage Collections Table)</p>
+                            <p>This is the first screen you see when you go to View Collection.</p>
+                            <ol class="list-unstyled">
+                                <li class="mb-5">
+                                    <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                                    <strong>How to reach this page</strong><br>
+                                    Left menu → click <strong>Collection</strong> (folder icon)<br>
+                                    → click <strong>View Collection</strong> (or sometimes just clicking "Collection" takes you here directly)
+                                </li>
+                                <li class="mb-5">
+                                    <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                                    <strong>What you see at the top</strong><br>
+                                    Page title: "Manage Collections"<br>
+                                    Blue button on right: <strong>Create Collection</strong> (takes you to Add Collection)<br>
+                                    Search box: "Search collections..." – type any word from title to filter<br>
+                                    Dropdown: "All Types" – change to filter by category if needed
+                                </li>
+                                <li class="mb-5">
+                                    <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                                    <strong>The main table</strong><br>
+                                    Columns you will see:
+                                    <ul class="mt-2">
+                                        <li><strong>#</strong> → just the row number (1, 2, 3...)</li>
+                                        <li><strong>Title</strong> → name of each collection</li>
+                                        <li><strong>Category</strong> → which main category it belongs to</li>
+                                        <li><strong>Access Type</strong> → green badge says <span class="badge bg-success">Public</span> or Private</li>
+                                        <li><strong>Created</strong> → date it was first made</li>
+                                        <li><strong>Actions</strong> → 3 colored buttons/icons:
+                                            <ul>
+                                                <li><i class="fas fa-eye action-icon text-primary"></i> View full details</li>
+                                                <li><i class="fas fa-edit action-icon text-warning"></i> Edit / change anything</li>
+                                                <li><i class="fas fa-trash-alt action-icon text-danger"></i> Delete forever</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="mb-5">
+                                    <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                                    <strong>How to use this list</strong><br>
+                                    • Scroll up/down to see all collections<br>
+                                    • Type in search box → list gets smaller instantly<br>
+                                    • Click column headers (if clickable) to sort by title/date<br>
+                                    • Look at Access Type column — only Public ones are visible to website visitors
+                                </li>
+                            </ol>
+
+                            <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="image/Capture8.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="Manage Collections Interface">
+        <figcaption class="figure-caption text-center">
+            Full view of the "Manage Collections" list/table page.
+        </figcaption>
+    </figure>
+</div>
+
+                            <p class="mb-4 fw-bold fs-5 mt-5">Part B – Single Collection Detail Page</p>
+                            <p>When you click the eye icon (<i class="fas fa-eye text-primary"></i>) on any row, this page opens.</p>
+        <p class="mb-4 fw-bold fs-5 mt-5">Part B – Single Collection Detail Page</p>
+        <p>When you click the eye icon (<i class="fas fa-eye text-primary"></i>) on any row, this page opens (example: /admin/collections/1).</p>
+        <ol class="list-unstyled">
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                <strong>Top of the page</strong><br>
+                Big title of the collection<br>
+                Small text: "Viewed XX times" (how many times people opened it on the website)
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                <strong>Collection Cover</strong><br>
+                The main cover image you uploaded when creating/editing
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                <strong>Description</strong><br>
+                The full text you wrote — exactly how visitors see it on the public site
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                <strong>Images section</strong><br>
+                Shows all extra images you uploaded (e.g. "Images (6 of 10)")<br>
+                Small thumbnails in a row/grid — click to enlarge if needed
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                <strong>PDF Document</strong><br>
+                If you uploaded a PDF → big blue <strong>Download PDF</strong> button<br>
+                Visitors on the public site will see this same button
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                <strong>Right sidebar – Information box</strong><br>
+                Shows:
+                • Main Category (colored badge)<br>
+                • Access Type (Public/Private)<br>
+                • Views count<br>
+                • PDF: Yes/No<br>
+                • Images: X of 10<br>
+                • Created date & time<br>
+                • Updated date & time
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                <strong>Actions buttons (right side)</strong><br>
+                • Yellow <strong>Edit Collection</strong> button → takes you to edit form<br>
+                • Red <strong>Delete Collection</strong> button → opens delete confirmation
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                <strong>Bottom – Statistics</strong><br>
+                Small boxes showing: number of images, total views, number of PDFs
+            </li>
+        </ol>
+
+                                    <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="image/Capture9.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="Manage Collections Interface">
+        <figcaption class="figure-caption text-center">
+            Full view of the single collection detail page.
+        </figcaption>
+    </figure>
+</div>
+
+
+        <p class="mb-4 fw-bold fs-5 mt-5">Part C – Edit Collection</p>
+        <p>Click yellow Edit button or pencil icon → opens almost same form as "Add Collection", but everything is already filled.</p>
+        <ol class="list-unstyled">
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                <strong>Change basic info</strong><br>
+                You can edit:<br>
+                • Main Category (change to another one)<br>
+                • Collection Title (make it better or fix spelling)<br>
+                • Description (add more text, change formatting)
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                <strong>Update Title Image</strong><br>
+                You see "Current Title Image" with preview<br>
+                • Click red trash icon to remove current image<br>
+                • Then click "Choose file" to upload new one
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                <strong>Update PDF Document</strong><br>
+                If PDF exists → shows current filename (e.g. report-2025.pdf)<br>
+                • Red trash → remove current PDF<br>
+                • "Choose file" → upload new PDF to replace it
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                <strong>Manage Collection Images</strong><br>
+                Shows all current images with small red trash icon under each one<br>
+                • Click trash on any image → removes it immediately<br>
+                • Scroll down to "Upload New Images" → choose multiple files (up to 10 total after delete/add)<br>
+                • You can keep adding until you reach max 10
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                <strong>Change Access Type</strong><br>
+                Switch between Public ↔ Private anytime<br>
+                <strong>Warning:</strong> Changing to Private hides it from public instantly
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                <strong>Save your changes</strong><br>
+                Scroll to bottom → click blue <strong>Update Collection</strong><br>
+                <strong>After saving:</strong><br>
+                • Success message appears<br>
+                • You return to detail page or list<br>
+                • Changes appear immediately on public website (if Public)
+            </li>
+        </ol>
+
+                                            <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="image/Capture10.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="Manage Collections Interface">
+        <figcaption class="figure-caption text-center">
+            Full view of the "Edit Collection" page – scroll to show current images with trash icons, PDF section, upload area, and Update button
+        </figcaption>
+    </figure>
+</div>
+
+
+
+        <p class="mb-4 fw-bold fs-5 mt-5">Part D – Delete Collection</p>
+        <p>Only delete when you are 100% sure — it is permanent.</p>
+        <ol class="list-unstyled">
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                From list view → click trash icon (<i class="fas fa-trash-alt text-danger"></i>) on any row<br>
+                OR from detail page → click red <strong>Delete Collection</strong> button
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg warning"></i> 
+                Confirmation popup appears with title "Delete Collection"
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                Message inside popup:<br>
+                "Are you sure you want to delete this collection?"<br>
+                Red warning text: "This action cannot be undone."
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                Two buttons:
+                • Gray <strong>Cancel</strong> → closes popup, nothing happens<br>
+                • Red <strong>Yes, Delete</strong> → permanently removes the collection
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg warning"></i> 
+                <strong>What happens when you delete?</strong><br>
+                • Collection disappears from admin list<br>
+                • All images, PDF, description are gone forever<br>
+                • If it was Public → immediately disappears from public website<br>
+                • No way to recover — even we (developers) cannot bring it back
+            </li>
+        </ol>
+        <div class="warning-box mt-4">
+            <i class="fas fa-exclamation-triangle fa-2x"></i> 
+            <strong>Very serious warning:</strong><br>
+            Only click "Yes, Delete" if you really want to remove it completely.<br>
+            Many admins regret deleting something useful — think twice!
+        </div>
+                                    <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture14.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="  Delete Collection Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the Delete confirmation popup
+        </figcaption>
+    </figure>
+</div>
+
+    </div>
+
+    <!-- 3. Manage Category – ultra detailed -->
+
+    <div class="sub-section">
+        <h4><i class="fas fa-tags text-info fa-2x"></i> 3. Manage Category – Control the Category Dropdown List</h4>
+        
+        <p class="mb-4 fw-bold fs-5">What this section is for:</p>
+        <p style="font-size: 1.15rem;">
+            Every time you add or edit a collection, you must choose a "Main Category" from a dropdown.<br>
+            This page is where you create, change or remove those category names.<br>
+            Examples of categories you already have: "Conflict, Resistance & Peace", "Human Rights & Justice", "Media & Research", etc.<br>
+            Categories help organize content — good categories make the website easy to navigate.
+        </p>
+
+        <p class="mb-4 fw-bold fs-5">Step-by-step – Main Categories List Page</p>
+        <ol class="list-unstyled">
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                <strong>How to open this page</strong><br>
+                Left menu → Collection → click <strong>Manage Category</strong><br>
+                (sometimes written as "Mange Catogry" due to typo — same thing)
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                <strong>What you see at the top</strong><br>
+                Page title: "Collection Categories"<br>
+                Small text: "Manage master categories for your collections"<br>
+                Two small cards:
+                • <strong>Total Categories</strong> (e.g. 6) with icon<br>
+                • <strong>Showing This Page</strong> (e.g. 6)<br>
+                Blue button top right: <strong>+ Add Category</strong>
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                <strong>Search box</strong><br>
+                "Search categories by name..."<br>
+                Type any word (e.g. "rights") → list filters instantly
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                <strong>The main table – All Categories</strong><br>
+                Columns:
+                <ul class="mt-2">
+                    <li><strong>#</strong> – number 1, 2, 3...</li>
+                    <li><strong>Category Name</strong> – name with small icon (e.g. Conflict, Resistance & Peace)</li>
+                    <li><strong>Actions</strong> – two buttons per row:
+                        <i class="fas fa-edit action-icon text-primary"></i> Edit
+                        <i class="fas fa-trash-alt action-icon text-danger"></i> Delete
+                    </li>
+                </ul>
+            </li>
+        </ol>
+
+        <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="image/Capture4.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="Admin Login Interface">
+        <figcaption class="figure-caption text-center">
+            Full view of the  "Collection Categories" list page.
+        </figcaption>
+    </figure>
+</div>
+
+        <p class="mb-4 fw-bold fs-5 mt-5">Adding a New Category</p>
+        <ol class="list-unstyled">
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                Click blue <strong>+ Add Category</strong> button at top right
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                Popup modal opens with title <strong>Add Category</strong>
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                Only one field: <strong>Category Name *</strong><br>
+                Type new name (must be unique – cannot repeat existing ones)<br>
+                Max 255 characters<br>
+                <strong>Good examples:</strong> "Environment & Climate", "Women & Gender Rights"
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                Click blue <strong>Add Category</strong> button<br>
+                OR <strong>Cancel</strong> if you change your mind
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                After adding → popup closes, new category appears in the table instantly
+            </li>
+        </ol>
+
+                        <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="image/Capture6.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="Add Category Interface">
+        <figcaption class="figure-caption text-center">
+            Full view of the "Add Category" popup/modal – show the input field and both buttons
+        </figcaption>
+    </figure>
+</div>
+
+        <p class="mb-4 fw-bold fs-5 mt-5">Editing an Existing Category</p>
+        <ol class="list-unstyled">
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                In the table → find the category → click pencil icon <i class="fas fa-edit text-primary"></i>
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                Popup opens: title <strong>Edit Category</strong>
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                Field <strong>Category Name *</strong> shows current name<br>
+                Change it to something new (still must be unique)
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                Click blue <strong>Save Changes</strong><br>
+                OR <strong>Cancel</strong> to keep old name
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                After saving → table updates immediately
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg warning"></i> 
+                <strong>Important note:</strong> Changing category name updates it everywhere — including existing collections and public website dropdowns
+            </li>
+        </ol>
+
+                <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="image/Capture5.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="Edit Category Interface">
+        <figcaption class="figure-caption text-center">
+            Full view of the  "Edit Category" popup – show pre-filled name and Save/Cancel buttons
+        </figcaption>
+    </figure>
+</div>
+
+
+        <p class="mb-4 fw-bold fs-5 mt-5">Deleting a Category</p>
+        <ol class="list-unstyled">
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                In table → click red trash icon <i class="fas fa-trash-alt text-danger"></i> next to category
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg warning"></i> 
+                Confirmation popup appears (similar to collection delete)
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                Message: "Are you sure you want to delete this category?"
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg warning"></i> 
+                Red warning: "This action cannot be undone. It may affect existing collections using this category."
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                Buttons: <strong>Cancel</strong> or <strong>Yes, Delete</strong>
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                If you click Yes → category disappears from table
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg warning"></i> 
+                <strong>What really happens:</strong><br>
+                • Category gone from dropdown forever<br>
+                • Any collections using this category may show blank category or error<br>
+                • Public website menus/dropdowns update instantly
+            </li>
+        </ol>
+        <div class="warning-box mt-4">
+            <i class="fas fa-exclamation-triangle fa-2x"></i> 
+            <strong>Very important warning – do NOT delete categories unless necessary!</strong><br>
+            Deleting breaks organization. If you must remove one, first edit all collections using it to another category.
+        </div>
+
+                            <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="image/Capture15.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt=" delete Category Interface">
+        <figcaption class="figure-caption text-center">
+            Full view of the category delete confirmation popup – full modal with warning text
+        </figcaption>
+    </figure>
+</div>
+
+
+                        </div>
+
+<div class="sub-section">
+        <h4><i class="fas fa-question-circle text-warning fa-2x"></i> 4. Collection Request – Manage User Access Requests for Private Collections</h4>
+        
+        <p class="mb-4 fw-bold fs-5">What this section is for:</p>
+        <p style="font-size: 1.15rem;">
+            When you create a collection and set it to <strong>Private</strong>, normal website visitors cannot see it.<br>
+            Only logged-in authorized users (members/admins) can access it.<br><br>
+            If a normal user wants to see a private collection, they can send an "access request" through the public website.<br>
+            Those requests come here for you (Master Admin) to review, approve, or reject.<br><br>
+            This section helps you control who gets special access to private/sensitive content.
+        </p>
+
+        <p class="mb-4 fw-bold fs-5">How to open this page</p>
+        <ol class="list-unstyled">
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                Look at the left dark sidebar menu.<br>
+                Find <strong>Collection</strong> (folder icon).<br>
+                Click the small arrow ▶ next to it to expand sub-menu.
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                In the sub-menu, click <strong>Collection Request</strong><br>
+                (sometimes labeled as "Collection Request" or "Access Requests")
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                The page opens with title: <strong>Access Requests</strong><br>
+                Subtitle: "Manage private collection access requests from users"
+            </li>
+        </ol>
+
+        <p class="mb-4 fw-bold fs-5">What you see on the main screen</p>
+        <ol class="list-unstyled">
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                Top stats row (colored badges):<br>
+                • <strong>Total</strong>: total requests ever (e.g. 0)<br>
+                • <strong>Pending</strong>: requests waiting for your decision (orange)<br>
+                • <strong>Approved</strong>: you said yes (green)<br>
+                • <strong>Rejected</strong>: you said no (red)
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                Filter buttons (below stats):<br>
+                • <strong>All</strong> (blue) – shows everything<br>
+                • <strong>Pending</strong> (orange icon) – only waiting ones<br>
+                • <strong>Approved</strong> (green check)<br>
+                • <strong>Rejected</strong> (red X)
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                Search box:<br>
+                "Search name or email..."<br>
+                Type user name or email → list filters instantly
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                Main content area:<br>
+                If no requests: big envelope icon + text "No requests found"<br>
+                "No access requests match the current filter."
+            </li>
+        </ol>
+
+<div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="image/Capture3.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="  Collection Request Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the " Collection Request" main page
+        </figcaption>
+    </figure>
+</div>
+
+        <p class="mb-4 fw-bold fs-5 mt-5">What happens when there ARE requests</p>
+        <p>When users send requests from the public website, this page fills up with rows. Each row shows:</p>
+        <ul style="font-size: 1.1rem;" class="mb-4">
+            <li>User's full name</li>
+            <li>Email address</li>
+            <li>Which private collection they want access to (title)</li>
+            <li>Date & time of request</li>
+            <li>Status: Pending / Approved / Rejected</li>
+            <li>Actions buttons (depending on status):
+                <ul>
+                    <li>For Pending: <strong>Approve</strong> (green) / <strong>Reject</strong> (red)</li>
+                    <li>For Approved/Rejected: maybe view details or undo (if system allows)</li>
+                </ul>
+            </li>
+        </ul>
+
+        <p class="mb-4 fw-bold fs-5">How to handle a Pending request – Step-by-step</p>
+        <ol class="list-unstyled">
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                <strong>Find the request</strong><br>
+                Use filter buttons → click <strong>Pending</strong> (orange)<br>
+                OR use search box if you know the user's name/email
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                <strong>Read the request</strong><br>
+                Look at:
+                • User's name & email<br>
+                • Which collection they want<br>
+                • Date sent<br>
+                Decide: Should this person get access? (Is he a trusted member? Does he need this private content?)
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg text-success"></i> 
+                <strong>To Approve</strong><br>
+                Click green <strong>Approve</strong> button on that row<br>
+                <strong>What happens:</strong><br>
+                • Status changes to Approved (green)<br>
+                • User gets email notification (if system sends)<br>
+                • User can now log in and see the private collection<br>
+                • No more "Pending" for this request
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg text-danger"></i> 
+                <strong>To Reject</strong><br>
+                Click red <strong>Reject</strong> button<br>
+                Sometimes a popup asks for reason (e.g. "Not authorized" or "Invalid request")<br>
+                <strong>What happens:</strong><br>
+                • Status changes to Rejected (red)<br>
+                • User may get email saying access denied<br>
+                • Request is closed
+            </li>
+            <li class="mb-5">
+                <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                <strong>After action</strong><br>
+                Page refreshes → request moves from Pending to Approved/Rejected<br>
+                Stats badges at top update automatically
+            </li>
+        </ol>
+
+        <div class="tips-box mt-5">
+            <i class="fas fa-lightbulb fa-2x"></i> <strong>Helpful Tips for Managing Requests:</strong>
+            <ul class="mb-0" style="font-size: 1.1rem;">
+                <li>Check requests every few days — users are waiting</li>
+                <li>Only approve trusted people (members you know)</li>
+                <li>If unsure → ask the user via email before approving</li>
+                <li>Keep "Pending" count low — clear them regularly</li>
+                <li>If many requests for same collection → consider making it Public instead</li>
+            </ul>
+        </div>
+
+        <div class="warning-box mt-4">
+            <i class="fas fa-exclamation-triangle fa-2x"></i> <strong>Important Warnings:</strong>
+            <ul class="mb-0" style="font-size: 1.1rem;">
+                <li>Approving wrong person → private/sensitive content leaks to public</li>
+                <li>Rejecting everyone → users may get frustrated and stop visiting</li>
+                <li>No undo button for approve/reject (in most systems) — think carefully</li>
+                <li>If 0 requests always → maybe no private collections yet, or users don't know how to request</li>
+            </ul>
+        </div>
+
+        <div class="placeholder-img mt-5">
+            [If you later get a screenshot with actual pending requests – capture full page showing stats, filters, search, and at least one request row with Approve/Reject buttons. For now: screenshot of "No requests found" page with envelope icon]
+        </div>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- / collection  section -->
+
+        <!--  heritge section -->
+
+        <!-- Heritage Collection Modal – ultra-detailed with 4 subsections -->
+        <div class="modal fade" id="modalHeritage" tabindex="-1">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><i class="fas fa-landmark me-3"></i> Heritage Collection – Extremely Detailed Guide</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="alert alert-primary mb-5 p-4" style="font-size: 1.2rem; border-left-width: 8px;">
+                            <i class="fas fa-info-circle me-3 fa-2x float-start mt-1"></i>
+                            <strong>What is the Heritage Collection section?</strong><br><br>
+                            This section is specially for cultural, historical, traditional, or heritage-related content.<br>
+                            It works almost exactly like the normal "Collection" section, but focused on old documents, photos, artifacts, traditions, audio-visual materials, etc.<br>
+                            Use this for things that are part of Tamil/Sri Lankan heritage, history, culture, or memory preservation.
+                        </div>
+
+                        <p class="lead text-center mb-5" style="font-size: 1.4rem;">
+                            <i class="fas fa-th-large me-3"></i>
+                            Heritage Collection has <strong>4 main sub-sections</strong>, just like normal Collection.
+                        </p>
+
+                        <!-- 1. Add Heritage Collection -->
+                        <div class="sub-section">
+                            <h4><i class="fas fa-plus-circle text-success fa-2x"></i> 1. Add Heritage Collection – Create a New Heritage Item</h4>
+                            
+                            <p class="mb-4 fw-bold fs-5">What this does:</p>
+                            <p style="font-size: 1.15rem;">
+                                This creates a new heritage-focused collection.<br>
+                                It is very similar to "Add Collection", but meant for historical/cultural content.<br>
+                                Example: "Ancient Tamil Manuscripts", "Traditional Jewellery Photos", "War Memory Audio-Visuals".<br>
+                                Once Public, it appears in the heritage section of the website.
+                            </p>
+
+                            <p class="mb-4 fw-bold fs-5">Very detailed step-by-step instructions:</p>
+                            <ol class="list-unstyled">
+                                <li class="mb-5">
+                                    <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                                    In left menu → click <strong>Heritage Collection</strong> (expand if needed)<br>
+                                    → click <strong>Add Heritage Collection</strong> (or "+ Add New Heritage Collection")
+                                </li>
+                                <li class="mb-5">
+                                    <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                                    <strong>Main Category *</strong><br>
+                                    Choose from dropdown (heritage-specific categories).<br>
+                                    If none fit → go to "Manage Main Category" (section 3) and add one.
+                                </li>
+                                <li class="mb-5">
+                                    <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                                    <strong>Collection Title *</strong><br>
+                                    Enter name (max 255 characters).<br>
+                                    <strong>Good examples:</strong> "Traditional Tamil Jewellery 1800–1950", "Memory of Conflict – Photos & Stories"
+                                </li>
+                                <li class="mb-5">
+                                    <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                                    <strong>Title Image</strong><br>
+                                    Upload cover photo (JPG/PNG/WEBP – max 5MB).<br>
+                                    Use high-quality historical or cultural image.
+                                </li>
+                                <li class="mb-5">
+                                    <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                                    <strong>Description *</strong><br>
+                                    Write full details using rich text editor (bold, lists, colors).<br>
+                                    Include historical context, importance, source if known.
+                                </li>
+                                <li class="mb-5">
+                                    <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                                    <strong>PDF Document</strong><br>
+                                    Upload main PDF (max 50MB).<br>
+                                    Optional for private, recommended for public heritage items.
+                                </li>
+                                <li class="mb-5">
+                                    <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                                    <strong>Access Type *</strong><br>
+                                    • Public → everyone can see<br>
+                                    • Private → only authorized users
+                                </li>
+                                <li class="mb-5">
+                                    <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                                    <strong>Collection Images</strong><br>
+                                    Upload up to 10 extra photos (max 5MB each).<br>
+                                    Use for supporting visuals (scans, artifacts, etc.).
+                                </li>
+                                <li class="mb-5">
+                                    <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                                    Click blue <strong>Create Collection</strong> button at bottom.<br>
+                                    Success → new heritage collection created.
+                                </li>
+                            </ol>
+
+                            <div class="tips-box">
+                                <i class="fas fa-lightbulb fa-2x"></i> <strong>Tips for Heritage Collections:</strong>
+                                <ul class="mb-0">
+                                    <li>Use very high-quality images — heritage content needs authenticity</li>
+                                    <li>Fill description with historical facts, dates, sources</li>
+                                    <li>PDF optional for private, but very useful for public</li>
+                                    <li>Fill all * fields — required</li>
+                                </ul>
+                            </div>
+
+       <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture16.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="  New Heritage Collection Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the  "Create New Heritage Collection" main page
+        </figcaption>
+    </figure>
+</div>
+
+                        </div>
+
+                        <!-- 2. View Heritage Collections -->
+
+<div class="sub-section">
+    <h4><i class="fas fa-eye text-primary fa-2x"></i> 2. View Heritage Collections – See, Open, Edit & Delete Existing Heritage Items</h4>
+    
+    <p class="mb-4 fw-bold fs-5">What this section is for:</p>
+    <p style="font-size: 1.15rem;">
+        This is the main screen to see all heritage collections you have created.<br>
+        You can:
+        - View the full list of heritage items
+        - Open any item to see complete details (exactly how visitors see it on the public website)
+        - Edit anything (title, category, description, images, PDF, access type)
+        - Delete heritage collections that are no longer needed<br><br>
+        This section works almost exactly like "View Collection" in the normal Collection menu, but only shows heritage-specific content.
+    </p>
+
+    <p class="mb-4 fw-bold fs-5">Part A – List View (Manage Heritage Collections Table)</p>
+    <p>This is the first page you see when you go to "View Heritage Collections".</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>How to reach this page</strong><br>
+            Left menu → click <strong>Heritage Collection</strong> (expand arrow if needed)<br>
+            → click <strong>View Heritage Collections</strong><br>
+            (or sometimes just clicking "Heritage Collection" takes you directly to this list)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>What you see at the top</strong><br>
+            Page title: "Manage Collections" (or "Manage Heritage Collections")<br>
+            Blue button on right: <strong>Create Collection</strong> (takes you to Add Heritage Collection)<br>
+            Search box: "Search collections..." – type any word from title to filter instantly<br>
+            Dropdown: "All Types" – change to filter by heritage-specific category if needed
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>The main table</strong><br>
+            Columns you will see:
+            <ul class="mt-2">
+                <li><strong>#</strong> → row number (1, 2, 3...)</li>
+                <li><strong>Title</strong> → name of each heritage collection (e.g. "Religious Heritage of Tamils, with Special Reference to Eezham Tamils")</li>
+                <li><strong>Category</strong> → heritage category (e.g. Religion, Belief, and Worldviews)</li>
+                <li><strong>Access Type</strong> → green badge says <span class="badge bg-success">Public</span> or Private</li>
+                <li><strong>Created</strong> → date it was added (e.g. Feb 27, 2026)</li>
+                <li><strong>Actions</strong> → 3 colored buttons/icons:
+                    <ul>
+                        <li><i class="fas fa-eye action-icon text-primary"></i> View full details</li>
+                        <li><i class="fas fa-edit action-icon text-warning"></i> Edit / update</li>
+                        <li><i class="fas fa-trash-alt action-icon text-danger"></i> Delete forever</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>How to use this list effectively</strong><br>
+            • Scroll up/down or use pagination (bottom: Showing 1 to 15 of 40 entries, page 1 2 3...)<br>
+            • Type in search box → list filters instantly (e.g. type "temple" to find temple-related heritage)<br>
+            • Use category dropdown to show only certain types<br>
+            • Look at Access Type — only Public ones are visible to website visitors<br>
+            • Click column headers (if sortable) to order by title/date
+        </li>
+    </ol>
+
+       <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture17.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="  view  Heritage Collection Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the  "View  Heritage Collection" main page
+        </figcaption>
+    </figure>
+</div>
+
+
+    <p class="mb-4 fw-bold fs-5 mt-5">Part B – Single Heritage Collection Detail Page</p>
+    <p>Click the eye icon (<i class="fas fa-eye text-primary"></i>) on any row → opens full details (example: /admin/heritagecollections/1).</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Top of the page</strong><br>
+            Big title of the heritage collection<br>
+            Small text below: "Viewed XX times" (how many times opened on public site)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Collection Cover</strong><br>
+            Main cover image you uploaded when creating/editing
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Description</strong><br>
+            Full rich text you wrote — exactly how visitors see it on the public website
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Images section</strong><br>
+            Shows all extra images (e.g. "Images (6 of 10)")<br>
+            Small thumbnails in grid/row — click to view larger if system allows
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>PDF Document</strong><br>
+            If PDF exists → big blue <strong>Download PDF</strong> button<br>
+            Visitors see the same button on public site
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Right sidebar – Information box</strong><br>
+            Shows:
+            • Main Category (colored badge)<br>
+            • Access Type (Public/Private)<br>
+            • Views count<br>
+            • PDF: Yes/No<br>
+            • Images: X of 10<br>
+            • Created date & time<br>
+            • Updated date & time
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Actions buttons (right side)</strong><br>
+            • Yellow <strong>Edit Collection</strong> → opens edit form<br>
+            • Red <strong>Delete Collection</strong> → opens delete confirmation
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Bottom – Statistics</strong><br>
+            Small boxes: number of images, total views, number of PDFs
+        </li>
+    </ol>
+
+           <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture18.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="  view  Heritage Collection Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the  single heritage collection detail page
+        </figcaption>
+    </figure>
+</div>
+
+
+
+    <p class="mb-4 fw-bold fs-5 mt-5">Part C – Edit Heritage Collection</p>
+    <p>Click yellow Edit button or pencil icon → opens edit form (almost same as Add Heritage Collection, but pre-filled).</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Change basic information</strong><br>
+            Edit Main Category, Collection Title, Description (use rich editor for formatting)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Update Title Image</strong><br>
+            See "Current Title Image" preview<br>
+            • Red trash icon → remove current image<br>
+            • "Choose file" → upload new cover photo
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Update PDF Document</strong><br>
+            If PDF exists → shows filename (e.g. heritage-report.pdf)<br>
+            • Red trash → remove current PDF<br>
+            • "Choose file" → upload replacement
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Manage Collection Images</strong><br>
+            Shows current images with red trash icon under each<br>
+            • Click trash → delete that image immediately<br>
+            • Scroll to "Upload New Images" → add more (max 10 total after delete/add)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Change Access Type</strong><br>
+            Switch Public ↔ Private anytime<br>
+            <strong>Warning:</strong> Changing to Private hides it from public visitors instantly
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Save changes</strong><br>
+            Scroll to bottom → click blue <strong>Update Collection</strong><br>
+            Success → changes saved, visible on public site (if Public)
+        </li>
+    </ol>
+
+               <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture19.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="  view  Heritage Collection Interface">
+                <img src="./image/Capture20.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="  view  Heritage Collection Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the  single heritage collection detail page
+        </figcaption>
+    </figure>
+</div>
+
+
+
+
+    <p class="mb-4 fw-bold fs-5 mt-5">Part D – Delete Heritage Collection</p>
+    <p>Only delete when 100% sure — deletion is permanent.</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            From list → click trash icon on row<br>
+            OR from detail page → click red <strong>Delete Collection</strong>
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg warning"></i> 
+            Confirmation popup opens: "Delete Collection"
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Message: "Are you sure you want to delete this collection?"<br>
+            Red warning: "This action cannot be undone."
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Buttons: <strong>Cancel</strong> (do nothing) or <strong>Yes, Delete</strong> (permanent remove)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg warning"></i> 
+            <strong>What happens on delete:</strong><br>
+            • Heritage collection gone from list<br>
+            • All images, PDF, description permanently deleted<br>
+            • If Public → immediately removed from public website<br>
+            • No recovery possible
+        </li>
+    </ol>
+    <div class="warning-box mt-4">
+        <i class="fas fa-exclamation-triangle fa-2x"></i> 
+        <strong>Very serious warning:</strong><br>
+        Heritage content is valuable — think very carefully before deleting.<br>
+        Many admins regret removing historical items — consider archiving or setting to Private instead.
+    </div>
+               <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture21.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="  Delete confirmation popup Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the   Delete confirmation popup for heritage collection
+        </figcaption>
+    </figure>
+</div>
+
+
+</div>
+                        <!-- 3. Manage Main Category -->
+<div class="sub-section">
+    <h4><i class="fas fa-tags text-info fa-2x"></i> 3. Manage Main Category – Control Heritage Category Dropdown</h4>
+    
+    <p class="mb-4 fw-bold fs-5">What this section is for:</p>
+    <p style="font-size: 1.15rem;">
+        This page lets you create, edit, or delete the main categories used in the dropdown when adding or editing heritage collections.<br><br>
+        These categories are specific to heritage items (e.g. "Built Heritage, Architecture, and Place", "Religion, Belief, and Worldviews").<br>
+        Good category management keeps heritage content organized on the public website.<br>
+        Changing or deleting categories here affects only heritage collections — not normal collections.
+    </p>
+
+    <p class="mb-4 fw-bold fs-5">How to open this page</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            In the left sidebar → click <strong>Heritage Collection</strong> (expand with arrow ▶ if collapsed)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            In the sub-menu → click <strong>Mange Main Catogry</strong><br>
+            (Note: "Mange" is likely a typo in your system — it means "Manage Main Category")
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Page loads with title: <strong>Collection Categories</strong><br>
+            Subtitle: "Manage master categories for your collections"
+        </li>
+    </ol>
+
+    <p class="mb-4 fw-bold fs-5">What you see on the main screen</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Top stats cards:<br>
+            • <strong>Total Categories</strong>: shows how many heritage categories exist (e.g. 10)<br>
+            • <strong>Showing This Page</strong>: number currently displayed (e.g. 10)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Blue button top right: <strong>+ Add Category</strong> (opens popup to create new)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Search box: "Search categories by name..."<br>
+            Type any word (e.g. "heritage") → list filters instantly
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Main table: "All Categories"<br>
+            Columns:
+            <ul class="mt-2">
+                <li><strong>#</strong> → serial number (1, 2, 3...)</li>
+                <li><strong>Category Name</strong> → full name with small icon (e.g. "Built Heritage, Architecture, and Place")</li>
+                <li><strong>Actions</strong> → two buttons per row:
+                    <ul>
+                        <li><i class="fas fa-edit action-icon text-primary"></i> Edit (pencil icon)</li>
+                        <li><i class="fas fa-trash-alt action-icon text-danger"></i> Delete (trash icon)</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ol>
+
+                   <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture22.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="  Manage Main Category Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the "Manage Main Category" page for Heritage 
+        </figcaption>
+    </figure>
+</div>
+
+
+    <p class="mb-4 fw-bold fs-5 mt-5">Adding a New Heritage Category</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Click blue <strong>+ Add Category</strong> button (top right)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Popup modal opens: title <strong>Add Category</strong>
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            One field: <strong>Category Name *</strong><br>
+            Type new unique name (e.g. "Traditional Tamil Festivals and Rituals")<br>
+            Must be unique (cannot repeat existing ones)<br>
+            Max 255 characters
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Click blue <strong>Add Category</strong> button<br>
+            OR <strong>Cancel</strong> to close without saving
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            After adding: popup closes → new category appears at bottom of table
+        </li>
+    </ol>
+
+                   <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture23.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="  Manage Main Category Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the "Manage Main Category" page for Heritage 
+        </figcaption>
+    </figure>
+</div>
+
+
+
+    <p class="mb-4 fw-bold fs-5 mt-5">Editing an Existing Heritage Category</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            In table → find category → click blue pencil icon <i class="fas fa-edit"></i>
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Popup opens: title <strong>Edit Category</strong>
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Field <strong>Category Name *</strong> shows current name (pre-filled)<br>
+            Change it to new name (still must be unique)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Click blue <strong>Save Changes</strong> button<br>
+            OR <strong>Cancel</strong> to keep old name
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            After saving: table updates instantly → new name appears everywhere (including existing heritage collections)
+        </li>
+    </ol>
+
+                   <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture24.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="  Edit Category Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the "Edit Category" popup
+        </figcaption>
+    </figure>
+</div>
+
+
+
+    <p class="mb-4 fw-bold fs-5 mt-5">Deleting a Heritage Category</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            In table → click red trash icon <i class="fas fa-trash-alt text-danger"></i> next to category
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg warning"></i> 
+            Confirmation popup appears
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Message: "Are you sure you want to delete this category?"
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg warning"></i> 
+            Red warning: "This action cannot be undone. It may affect existing heritage collections using this category."
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Buttons: <strong>Cancel</strong> or <strong>Yes, Delete</strong>
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            If Yes → category removed from table and dropdown
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg warning"></i> 
+            <strong>Important effect:</strong><br>
+            • Any heritage collections using this category may show blank or error in category field<br>
+            • Public website heritage menus/dropdowns update immediately
+        </li>
+    </ol>
+    <div class="warning-box mt-4">
+        <i class="fas fa-exclamation-triangle fa-2x"></i> 
+        <strong>Very important warning:</strong><br>
+        Do NOT delete a category unless you first re-categorize all heritage collections using it.<br>
+        Deleting breaks organization — use only when necessary.
+    </div>
+                   <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture25.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="  delete confirmation popup Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the delete confirmation popup for heritage category
+        </figcaption>
+    </figure>
+</div>
+
+
+</div>
+
+                        <!-- 4. Heritage Collection Request -->
+<div class="sub-section">
+    <h4><i class="fas fa-question-circle text-warning fa-2x"></i> 4. Heritage Collection Request – Manage Access Requests for Private Heritage Items</h4>
+    
+    <p class="mb-4 fw-bold fs-5">What this section is for:</p>
+    <p style="font-size: 1.15rem;">
+        Heritage collections can be set to <strong>Private</strong> — meaning only logged-in authorized users can view them.<br><br>
+        If a regular website visitor wants access to a private heritage collection (e.g. old manuscripts, historical photos), they can submit an "access request" from the public site.<br>
+        Those requests appear here for you (Master Admin) to review, approve, or reject.<br><br>
+        This is the heritage-specific version of "Collection Request" — it only handles requests for heritage items.
+    </p>
+
+    <p class="mb-4 fw-bold fs-5">How to open this page</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            In left sidebar → click <strong>Heritage Collection</strong> (expand with ▶ if needed)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            In sub-menu → click <strong>Heritage Collection Request</strong><br>
+            (may also appear as "Access Requests" in some places)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Page loads with title: <strong>Access Requests</strong><br>
+            Subtitle: "Manage private collection access requests from users"
+        </li>
+    </ol>
+
+    <p class="mb-4 fw-bold fs-5">What you see when there are no requests (empty state)</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Top stats badges (colored circles):<br>
+            • <strong>Total: 0</strong> (blue)<br>
+            • <strong>Pending: 0</strong> (orange)<br>
+            • <strong>Approved: 0</strong> (green)<br>
+            • <strong>Rejected: 0</strong> (red)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Filter buttons below stats:<br>
+            • <strong>All</strong> (blue, selected by default)<br>
+            • <strong>Pending</strong> (orange envelope icon)<br>
+            • <strong>Approved</strong> (green check icon)<br>
+            • <strong>Rejected</strong> (red X icon)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Search box: "Search name or email..."<br>
+            (Type user name/email to filter — currently empty since no requests)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Main content area:<br>
+            Large envelope/mailbox icon in center<br>
+            Text: "No requests found"<br>
+            Small text below: "No access requests match the current filter."
+        </li>
+    </ol>
+
+
+                       <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture26.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="  Collection Request  Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the "Heritage Collection Request / Access Requests"
+        </figcaption>
+    </figure>
+</div>
+
+
+    <p class="mb-4 fw-bold fs-5 mt-5">What happens when there ARE pending requests</p>
+    <p style="font-size: 1.1rem;">
+        When users request access to private heritage collections, rows appear instead of "No requests found".<br>
+        Each row typically shows:
+    </p>
+    <ul style="font-size: 1.1rem;" class="mb-4">
+        <li>User's full name</li>
+        <li>Email address</li>
+        <li>Name/title of the private heritage collection they want</li>
+        <li>Date & time request was submitted</li>
+        <li>Status: Pending / Approved / Rejected</li>
+        <li>Action buttons (mainly for Pending):
+            <ul>
+                <li><strong>Approve</strong> – green button</li>
+                <li><strong>Reject</strong> – red button (may ask for reason)</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p class="mb-4 fw-bold fs-5">How to handle a Pending heritage access request – Step-by-step</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Locate the request</strong><br>
+            Click orange <strong>Pending</strong> filter button (or use search box if you know the user)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Review carefully</strong><br>
+            Check:
+            • Who is requesting (name + email)<br>
+            • Which heritage collection (e.g. ancient manuscripts, temple photos)<br>
+            • When submitted<br>
+            Decide: Is this a trusted person? Do they have legitimate reason for private heritage access?
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg text-success"></i> 
+            <strong>Approve access</strong><br>
+            Click green <strong>Approve</strong> button on that row<br>
+            <strong>Immediate effects:</strong><br>
+            • Status changes to Approved (green)<br>
+            • User usually receives email confirmation (if system sends)<br>
+            • User can now log in and view/download the private heritage collection<br>
+            • Request removed from Pending
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg text-danger"></i> 
+            <strong>Reject access</strong><br>
+            Click red <strong>Reject</strong> button<br>
+            (Some systems open a popup asking for rejection reason – optional)<br>
+            <strong>Effects:</strong><br>
+            • Status changes to Rejected (red)<br>
+            • User may receive denial email<br>
+            • Request closed and moved to Rejected list
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>After you act</strong><br>
+            Page refreshes automatically<br>
+            Stats badges update (Pending decreases, Approved/Rejected increases)<br>
+            Switch filters to review Approved or Rejected lists if needed
+        </li>
+    </ol>
+
+    <div class="tips-box mt-5">
+        <i class="fas fa-lightbulb fa-2x"></i> <strong>Helpful Tips for Heritage Requests:</strong>
+        <ul class="mb-0" style="font-size: 1.1rem;">
+            <li>Check this page regularly — heritage access requests may be from researchers/students</li>
+            <li>Only approve trusted individuals (members, known scholars, etc.)</li>
+            <li>If unsure — reply to user via email first to verify purpose</li>
+            <li>Keep Pending count at zero — fast responses build trust</li>
+            <li>If many requests for one private heritage item → consider making it Public</li>
+            <li>Document approvals (screenshot or note user email) for records</li>
+        </ul>
+    </div>
+
+    <div class="warning-box mt-5">
+        <i class="fas fa-exclamation-triangle fa-2x"></i> <strong>Important Warnings:</strong>
+        <ul class="mb-0" style="font-size: 1.1rem;">
+            <li>Approving unknown users → risk of sensitive historical content leaking</li>
+            <li>Rejecting too often → researchers may stop using the site</li>
+            <li>No undo for approve/reject — be certain before clicking</li>
+            <li>If always 0 requests → either no private heritage collections yet, or users don't know how to request</li>
+            <li>Heritage content is culturally sensitive — approve access only when justified</li>
+        </ul>
+    </div>
+
+    <div class="placeholder-img mt-5">
+        [Screenshot of Heritage Collection Request page (empty state) – stats badges, filters, search, envelope icon, "No requests found" message.<br>
+        If you get a page with actual requests later, capture rows with Approve/Reject buttons too.]
+    </div>
+</div>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+                  <!-- /heritge section -->
+
+                  <!-- publication  section -->
+<!-- Publications Modal – paste this entire block where you have other modals -->
+<div class="modal fade" id="modalPublications" tabindex="-1">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fas fa-book-reader me-3"></i> Publications – Extremely Detailed Guide</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="alert alert-primary mb-5 p-4" style="font-size: 1.2rem; border-left-width: 8px;">
+                    <i class="fas fa-info-circle me-3 fa-2x float-start mt-1"></i>
+                    <strong>What is the Publications section?</strong><br><br>
+                    This section is for uploading and managing books, reports, magazines, research papers, and other written/published materials.<br>
+                    Unlike Collections (which group documents), Publications are individual items (usually one PDF + metadata).<br>
+                    They can be free or paid, public or private, and appear in a dedicated "Publications" area on the public website.
+                </div>
+
+                <p class="lead text-center mb-5" style="font-size: 1.4rem;">
+                    <i class="fas fa-th-large me-3"></i>
+                    Publications has <strong>4 main sub-sections</strong>:
+                </p>
+
+                <!-- 1. Add Publication -->
+                <div class="sub-section">
+                    <h4><i class="fas fa-plus-circle text-success fa-2x"></i> 1. Add Publication – Create a New Book/Report/Paper</h4>
+                    
+                    <p class="mb-4 fw-bold fs-5">What this does:</p>
+                    <p style="font-size: 1.15rem;">
+                        This form lets you upload a new publication (usually one main PDF/document).<br>
+                        You add title, image, content description, category, price, access type, etc.<br>
+                        Once saved and set to Public/Free, visitors can view/download it from the website.
+                    </p>
+
+                    <p class="mb-4 fw-bold fs-5">Very detailed step-by-step instructions:</p>
+                    <ol class="list-unstyled">
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            In left menu → click <strong>Publications</strong> (expand if needed)<br>
+                            → click <strong>Add Publication</strong> (or "+ Add New Publication")
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            <strong>Publication Title *</strong><br>
+                            Enter clear title (e.g. "Tamil Language Grammar Guide", "Modern Tamil Cinema Insights")<br>
+                            Required field – max length not specified but keep it short & descriptive
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            <strong>Title Image *</strong><br>
+                            Click "Choose file"<br>
+                            Upload cover image (JPG, PNG, GIF – max 2MB)<br>
+                            Required – this is the thumbnail shown on public listings
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            <strong>Content *</strong><br>
+                            Write a description/summary of the publication<br>
+                            Use rich text editor (bold, italic, lists, colors, links)<br>
+                            Required – this appears on the detail page
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            <strong>Main Category *</strong><br>
+                            Select from dropdown (e.g. Books, Magazines, Research Papers)<br>
+                            Required – loads Subcategory options
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            <strong>Subcategory *</strong><br>
+                            Appears after selecting Main Category<br>
+                            Choose specific subcategory (e.g. under Books: Novels, Educational)
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            <strong>Pricing Type *</strong><br>
+                            Select: Free or Paid (dropdown)<br>
+                            If Paid → price field appears (e.g. $12.50)
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            <strong>Access Type *</strong><br>
+                            Dropdown: Public (anyone can view) or Private (only authorized users)
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            <strong>PDF File (Optional)</strong><br>
+                            Click "Choose file"<br>
+                            Upload main PDF (max 10MB)<br>
+                            Optional but recommended for public/free publications
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            Scroll down → click green <strong>+Add Publication</strong> button<br>
+                            OR <strong>Cancel</strong> to discard
+                        </li>
+                    </ol>
+
+                    <div class="tips-box">
+                        <i class="fas fa-lightbulb fa-2x"></i> <strong>Tips:</strong>
+                        <ul class="mb-0">
+                            <li>Fill all * fields – required to save</li>
+                            <li>Use attractive cover image (max 2MB) – first thing visitors see</li>
+                            <li>Write good content description – helps visitors decide to read/buy</li>
+                            <li>PDF optional for private – but essential for public/free items</li>
+                            <li>Select correct category/subcategory – helps website organization</li>
+                        </ul>
+                    </div>
+
+
+                       <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture27.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="  Add New Publication Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the "Add New Publication"
+        </figcaption>
+    </figure>
+</div>
+
+
+                </div>
+
+                <!-- 2. View All -->
+<div class="sub-section">
+    <h4><i class="fas fa-eye text-primary fa-2x"></i> 2. View All – See, Edit & Delete All Publications</h4>
+    
+    <p class="mb-4 fw-bold fs-5">What this section is for:</p>
+    <p style="font-size: 1.15rem;">
+        This is the main list screen where you see every publication you have added (books, papers, magazines, etc.).<br>
+        You can:
+        - Browse/search the full list
+        - See key info (title, image, category, price, visibility, etc.)
+        - Edit any publication (change title, price, image, PDF, etc.)
+        - Delete publications you no longer want<br><br>
+        This is where you manage your published content daily — checking, updating, or removing items.
+    </p>
+
+    <p class="mb-4 fw-bold fs-5">Part A – List View (All Publications Table)</p>
+    <p>This is the first page you see when you go to "View All".</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>How to reach this page</strong><br>
+            Left menu → click <strong>Publications</strong> (expand with arrow ▶ if needed)<br>
+            → click <strong>View All</strong> (or sometimes just clicking "Publications" takes you directly here)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>What you see at the top</strong><br>
+            Page title: "All Publications"<br>
+            Green button on right: <strong>+ Add Publication</strong> (takes you to Add New Publication form)<br>
+            Search box: type title words to filter instantly<br>
+            Pagination at bottom: "Showing 1 to 15 of 29 entries" with page numbers (1 2 3...)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>The main table</strong><br>
+            Columns you will see:
+            <ul class="mt-2">
+                <li><strong>#</strong> → row/serial number (1, 2, 3...)</li>
+                <li><strong>Title</strong> → name of the publication (e.g. "Tamil Philosophy and Ethics")</li>
+                <li><strong>Image</strong> → small thumbnail of the title image you uploaded</li>
+                <li><strong>MainCategory</strong> → top-level category (e.g. Research Papers, Books, Magazines)</li>
+                <li><strong>Subcategory</strong> → more specific (e.g. Science, Lifestyle, Educational)</li>
+                <li><strong>Price</strong> → amount (e.g. $15.00 or Free)</li>
+                <li><strong>Visible</strong> → colored badge: <span style="color:green;">Public</span> or <span style="color:orange;">Private</span></li>
+                <li><strong>Actions</strong> → colored buttons/icons:
+                    <ul>
+                        <li><i class="fas fa-edit action-icon text-primary"></i> Edit (pencil icon)</li>
+                        <li><i class="fas fa-trash-alt action-icon text-danger"></i> Delete (trash icon)</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>How to use this list effectively</strong><br>
+            • Scroll up/down or use pagination arrows/numbers at bottom<br>
+            • Type in search box → table filters instantly (e.g. type "Tamil" to show Tamil-related titles)<br>
+            • Look at Visible column — only Public ones are visible to website visitors<br>
+            • Check Price — Free items can be downloaded by anyone (if Public)<br>
+            • Thumbnails help you quickly recognize publications
+        </li>
+    </ol>
+
+
+                           <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture28.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt=" view Publication Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the "All Publications" list page
+        </figcaption>
+    </figure>
+</div>
+
+
+    <p class="mb-4 fw-bold fs-5 mt-5">Part B – Editing a Publication</p>
+    <p>Click the blue Edit icon (pencil) on any row → opens an edit popup/modal with pre-filled data.</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Popup title: <strong>Edit Publication</strong> (or similar)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Title *</strong> → change publication name if needed
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Main Category *</strong> → change top-level category
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Subcategory *</strong> → change specific subcategory (updates based on Main Category)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Price</strong> → edit amount (leave 0 for free publications)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Visibility *</strong> → switch between Public (everyone) or Private (authorized users only)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Content *</strong> → edit description/summary (rich text editor available)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Title Image</strong> → see current image preview<br>
+            • Click trash/red button → remove current image<br>
+            • "Choose file" → upload new cover
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>PDF File</strong> → see current file name (if any)<br>
+            • Trash → remove current PDF<br>
+            • "Choose file" → upload new/replacement PDF
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Bottom buttons:<br>
+            • Red <strong>Delete</strong> → delete this publication<br>
+            • Green <strong>Save Changes</strong> → update and close<br>
+            • Gray <strong>Close</strong> → cancel without saving
+        </li>
+    </ol>
+
+
+                               <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture29.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt=" Edit Publication Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the "Edit Publication" popup/modal
+        </figcaption>
+    </figure>
+</div>
+
+
+    <p class="mb-4 fw-bold fs-5 mt-5">Part C – Deleting a Publication</p>
+    <p>Only delete when 100% sure — deletion is permanent.</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            From list → click red trash icon on row<br>
+            OR from edit popup → click red <strong>Delete</strong> button
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg warning"></i> 
+            Confirmation popup opens with title like "Delete Publication"
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Message: "Are you sure you want to delete this publication?"<br>
+            Red warning: "This action cannot be undone."
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Buttons: <strong>Cancel</strong> (do nothing) or <strong>Yes, Delete</strong> (permanent removal)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg warning"></i> 
+            <strong>What happens on delete:</strong><br>
+            • Publication disappears from list<br>
+            • All data (title, image, PDF, description) gone forever<br>
+            • If Public → immediately removed from public website<br>
+            • No recovery possible
+        </li>
+    </ol>
+    <div class="warning-box mt-4">
+        <i class="fas fa-exclamation-triangle fa-2x"></i> 
+        <strong>Very serious warning:</strong><br>
+        Only delete publications you truly no longer need.<br>
+        Consider setting to Private instead of deleting — easier to restore access later.
+    </div>
+    <div class="placeholder-img mt-4">
+        [Screenshot of the Delete confirmation popup for publication – full modal with warning text and both buttons]
+    </div>
+
+                               <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture30.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt=" Delete Publication Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the Delete confirmation popup for publication
+        </figcaption>
+    </figure>
+</div>
+
+
+</div>
+
+                <!-- 3. Publications Categories -->
+<div class="sub-section">
+    <h4><i class="fas fa-tags text-info fa-2x"></i> 3. Publications Categories – Manage Main Categories & Subcategories</h4>
+    
+    <p class="mb-4 fw-bold fs-5">What this section is for:</p>
+    <p style="font-size: 1.15rem;">
+        This page controls the Main Categories and Subcategories used in the dropdowns when adding or editing publications.<br><br>
+        Main categories are top-level (e.g. Books, Magazines, Newspapers, Research Papers).<br>
+        Each main category can have subcategories (e.g. Books → Educational, Novels).<br>
+        Proper category management helps organize publications on the public website and makes searching/filtering easier for visitors.
+    </p>
+
+    <p class="mb-4 fw-bold fs-5">How to open this page</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Left menu → click <strong>Publications</strong> (expand with arrow ▶ if needed)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            In sub-menu → click <strong>Publications Categories</strong> (or "Publications Catogary" due to typo)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Page loads with title: <strong>Publication Categories</strong><br>
+            Subtitle: "Manage main categories and their subcategories"
+        </li>
+    </ol>
+
+    <p class="mb-4 fw-bold fs-5">What you see on the main screen</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Top stats cards:<br>
+            • <strong>Total Main Categories</strong> (e.g. 4)<br>
+            • <strong>Showing This Page</strong> (e.g. 4)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Blue button top right: <strong>+ Add Main Category</strong> (opens popup to create new main category)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Search box: "Search categories by name..."<br>
+            Type any word (e.g. "books") → list filters instantly
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Main table: "All Main Categories"<br>
+            Columns:
+            <ul class="mt-2">
+                <li><strong>#</strong> → serial number (1, 2, 3...)</li>
+                <li><strong>Category Name</strong> → main category name (e.g. "Books")</li>
+                <li><strong>Subcategories</strong> → count and link (e.g. "2 subcategories" – click to open subcategories modal)</li>
+                <li><strong>Actions</strong> → three buttons per row:
+                    <ul>
+                        <li><i class="fas fa-edit action-icon text-primary"></i> Edit main category</li>
+                        <li><i class="fas fa-trash-alt action-icon text-danger"></i> Delete main category</li>
+                        <li><i class="fas fa-list action-icon text-info"></i> Subcategories (≡ icon – opens subcategories modal)</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ol>
+
+
+    
+                               <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture31.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="  Publication  Categories Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the "Publication Categories" main page
+        </figcaption>
+    </figure>
+</div>
+
+
+    <p class="mb-4 fw-bold fs-5 mt-5">Adding a New Main Category</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Click blue <strong>+ Add Main Category</strong> button (top right)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Popup modal opens: title like <strong>Add Main Category</strong>
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Field: <strong>Category Name *</strong><br>
+            Type new unique name (e.g. "Journals", "Reports")<br>
+            Must be unique – max 255 characters
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Click blue <strong>Add</strong> button<br>
+            OR <strong>Cancel</strong> to close without saving
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            After adding: popup closes → new main category appears in table
+        </li>
+    </ol>
+                                   <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture32.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt=" Add Publication  Categories Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the  "Add Main Category" popup 
+        </figcaption>
+    </figure>
+</div>
+
+
+    <p class="mb-4 fw-bold fs-5 mt-5">Managing Subcategories (for any Main Category)</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            In table → find main category (e.g. "Books") → click blue <strong>Subcategories</strong> link or ≡ icon
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Popup opens: title like <strong>Subcategories of Books</strong>
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Input box: "Add New Subcategory" – type name (e.g. "Poetry")<br>
+            Click blue <strong>+ Add</strong> button to create new subcategory
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Table shows existing subcategories:<br>
+            • # (number)<br>
+            • Name<br>
+            • Actions: Edit (pencil) / Delete (trash)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Click pencil → edit subcategory name in popup → Save Changes
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Click trash → delete subcategory (confirmation popup)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Click <strong>Close</strong> to return to main categories list
+        </li>
+    </ol>
+
+                                       <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture33.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt=" Add Publication  Subcategories Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the  Subcategories popup/modal
+        </figcaption>
+    </figure>
+</div>
+
+
+    <p class="mb-4 fw-bold fs-5 mt-5">Editing a Main Category</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            In table → click blue pencil icon next to category
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Popup: <strong>Edit Main Category</strong>
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Field <strong>Category Name *</strong> pre-filled → change name (must remain unique)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Click blue <strong>Save Changes</strong><br>
+            OR <strong>Cancel</strong>
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            After saving: table updates → new name appears everywhere (including existing publications)
+        </li>
+    </ol>
+
+
+                                       <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture34.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt=" Edit Publication  categories Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the "Edit Main Category" popup 
+        </figcaption>
+    </figure>
+</div>
+
+
+
+    <p class="mb-4 fw-bold fs-5 mt-5">Deleting a Main Category</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            In table → click red trash icon next to category
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg warning"></i> 
+            Confirmation popup opens: "Delete Main Category?"
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Message: "You are about to permanently delete [Category Name]. All its subcategories will also be deleted."
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg warning"></i> 
+            Red warning: Action cannot be undone
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Buttons: <strong>Cancel</strong> or <strong>Yes, Delete</strong>
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            If Yes → main category and all its subcategories removed
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg warning"></i> 
+            <strong>Important effect:</strong><br>
+            • Publications using this category/subcategory may show blank category<br>
+            • Public website filters/dropdowns update immediately
+        </li>
+    </ol>
+    <div class="warning-box mt-4">
+        <i class="fas fa-exclamation-triangle fa-2x"></i> 
+        <strong>Very important warning:</strong><br>
+        Deleting a main category deletes ALL its subcategories too.<br>
+        Before deleting, re-assign publications to other categories.<br>
+        Use only when absolutely necessary — otherwise set publications to hidden/Private.
+    </div>
+
+
+                                       <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture35.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="delete  categories Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the "Delete Main Category" confirmation popup 
+        </figcaption>
+    </figure>
+</div>
+
+
+
+
+</div>
+                <!-- 4. Orders -->
+<div class="sub-section">
+    <h4><i class="fas fa-shopping-cart text-warning fa-2x"></i> 4. Orders – View & Manage Purchases of Paid Publications</h4>
+    
+    <p class="mb-4 fw-bold fs-5">What this section is for:</p>
+    <p style="font-size: 1.15rem;">
+        This page shows all orders placed by users for **paid publications** (books, reports, etc. with price > 0).<br><br>
+        You (Master Admin) can:
+        - See who bought what
+        - Check order details (user name, email, phone, status, date)
+        - Update order status (e.g. pending → completed, delivered)
+        - View or contact the buyer if needed<br><br>
+        Currently shows "No orders available" because no paid purchases have been made yet (or only free publications exist).
+    </p>
+
+    <p class="mb-4 fw-bold fs-5">How to open this page</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Left menu → click <strong>Publications</strong> (expand with arrow ▶ if needed)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            In sub-menu → click <strong>Orders</strong>
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Page loads with title: <strong>Publication Orders</strong><br>
+            (Icon: small book/cart symbol next to title)
+        </li>
+    </ol>
+
+    <p class="mb-4 fw-bold fs-5">What you see when there are no orders (empty state)</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Page header: "Publication Orders"
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Main table with columns:
+            <ul class="mt-2">
+                <li><strong>#</strong> → order number</li>
+                <li><strong>Publication</strong> → title of the paid item bought</li>
+                <li><strong>Name</strong> → buyer's full name</li>
+                <li><strong>Email</strong> → buyer's email</li>
+                <li><strong>Phone</strong> → buyer's contact number</li>
+                <li><strong>Status</strong> → current state (e.g. Pending, Completed, Cancelled)</li>
+                <li><strong>Requested On</strong> → date/time of purchase</li>
+                <li><strong>Action</strong> → buttons (likely View, Update Status, Cancel, etc. when orders exist)</li>
+            </ul>
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Table body shows: "No orders available."<br>
+            This means:
+            - No one has bought any paid publication yet
+            - Or only free publications exist so far
+        </li>
+    </ol>
+
+    
+                                       <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture36.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="Publication Orders Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the  "Publication Orders" page
+        </figcaption>
+    </figure>
+</div>
+
+
+    <p class="mb-4 fw-bold fs-5 mt-5">What happens when there ARE orders</p>
+    <p style="font-size: 1.1rem;">
+        When users buy paid publications, rows appear in the table. Each row typically includes:
+    </p>
+    <ul style="font-size: 1.1rem;" class="mb-4">
+        <li># → unique order ID</li>
+        <li>Publication → name of the paid item (links to details?)</li>
+        <li>Name → buyer's full name</li>
+        <li>Email → buyer's email (clickable?)</li>
+        <li>Phone → contact number</li>
+        <li>Status → e.g. Pending Payment, Paid, Delivered, Cancelled</li>
+        <li>Requested On → date/time purchase was made</li>
+        <li>Action → buttons like:
+            <ul>
+                <li>View order details</li>
+                <li>Update status (dropdown or buttons)</li>
+                <li>Contact buyer</li>
+                <li>Cancel/Refund (if applicable)</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p class="mb-4 fw-bold fs-5">How to manage an order – Step-by-step (when orders exist)</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Find the order</strong><br>
+            Scroll through table or use browser search (Ctrl+F) for name/title
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Review order details</strong><br>
+            Look at:
+            • Buyer info (name, email, phone)<br>
+            • Publication bought<br>
+            • Price paid<br>
+            • Status (most important — Pending means payment not confirmed yet)<br>
+            • Date requested
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg text-success"></i> 
+            <strong>Update status</strong><br>
+            Click action button for that row (likely "View" or "Edit Status")<br>
+            Change status to:
+            • Paid/Completed (after confirming payment)<br>
+            • Delivered (if physical/digital delivery done)<br>
+            • Cancelled/Refunded (if requested)<br>
+            Save changes — buyer may get email notification
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Contact buyer if needed</strong><br>
+            Use email/phone from table to confirm payment issues, delivery, etc.
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg warning"></i> 
+            <strong>If cancelling/refunding</strong><br>
+            Follow system refund process (if integrated with payment gateway)<br>
+            Update status to Cancelled/Refunded
+        </li>
+    </ol>
+
+    <div class="tips-box mt-5">
+        <i class="fas fa-lightbulb fa-2x"></i> <strong>Helpful Tips for Managing Orders:</strong>
+        <ul class="mb-0" style="font-size: 1.1rem;">
+            <li>Check this page daily if you have paid publications — respond quickly to Pending orders</li>
+            <li>Verify payment before marking as Completed (check payment gateway dashboard if separate)</li>
+            <li>For digital items (PDFs) — auto-delivery usually happens on payment success</li>
+            <li>Keep buyer communication polite and clear — good service encourages more purchases</li>
+            <li>If no orders ever → promote paid publications more on public site or add more attractive titles</li>
+            <li>Export orders list (if option exists) for accounting/bookkeeping</li>
+        </ul>
+    </div>
+
+    <div class="warning-box mt-5">
+        <i class="fas fa-exclamation-triangle fa-2x"></i> <strong>Important Warnings:</strong>
+        <ul class="mb-0" style="font-size: 1.1rem;">
+            <li>Do NOT mark as Completed without real payment confirmation — can cause financial loss</li>
+            <li>Handle refunds carefully — follow your payment processor rules</li>
+            <li>Protect buyer privacy — do not share email/phone publicly</li>
+            <li>If many Pending orders → check payment gateway integration (may be failing)</li>
+            <li>Never delete orders — archive or mark Cancelled instead</li>
+        </ul>
+    </div>
+
+    <div class="placeholder-img mt-5">
+        [Screenshot of "Publication Orders" page – table header with columns (#, Publication, Name, Email, Phone, Status, Requested On, Action) and "No orders available" message.<br>
+        When orders appear later, capture a row with status and action buttons too.]
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+                  
+                  <!-- /publication section -->
+
+  <!-- virtual exhibition  section -->
+
+  <!-- Virtual Exhibition Modal – paste this entire block -->
+<div class="modal fade" id="modalVirtual" tabindex="-1">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fas fa-chalkboard-teacher me-3"></i> Virtual Exhibition – Extremely Detailed Guide</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="alert alert-primary mb-5 p-4" style="font-size: 1.2rem; border-left-width: 8px;">
+                    <i class="fas fa-info-circle me-3 fa-2x float-start mt-1"></i>
+                    <strong>What is the Virtual Exhibition section?</strong><br><br>
+                    This section lets you create and manage virtual/online exhibitions — digital displays of artifacts, images, descriptions, and media.<br>
+                    Each exhibition can include:
+                    - A title, category, location (physical or virtual tour link)
+                    - Cover image + gallery images
+                    - Multiple artifacts (each with name, description, image, file/location)<br><br>
+                    Visitors can explore these exhibitions online (via virtual tour link or gallery view) without visiting physically.
+                </div>
+
+                <p class="lead text-center mb-5" style="font-size: 1.4rem;">
+                    <i class="fas fa-th-large me-3"></i>
+                    Virtual Exhibition has <strong>3 main sub-sections</strong>:
+                </p>
+
+                <!-- 1. Add Virtual Exhibition -->
+                <div class="sub-section">
+                    <h4><i class="fas fa-plus-circle text-success fa-2x"></i> 1. Add Virtual Exhibition – Create a New Virtual Display</h4>
+                    
+                    <p class="mb-4 fw-bold fs-5">What this does:</p>
+                    <p style="font-size: 1.15rem;">
+                        This form creates a new virtual exhibition — like setting up a digital museum room.<br>
+                        You add basic info (title, category, location), description, cover/gallery images, virtual tour link (optional), and multiple artifacts (each with its own image/description/file).
+                    </p>
+
+                    <p class="mb-4 fw-bold fs-5">Very detailed step-by-step instructions:</p>
+                    <ol class="list-unstyled">
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            Left menu → click <strong>Virtual Exhibition</strong> (expand with ▶ if needed)<br>
+                            → click <strong>Add Virtual Exhibition</strong> (or "+ Add Virtual Exhibition")
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            <strong>Exhibition Title *</strong><br>
+                            Enter attractive name (e.g. "Echoes of the Ancient World", "Tamil Traditional Crafts")<br>
+                            Required field
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            <strong>Category *</strong><br>
+                            Select from dropdown (e.g. Art, History, Culture — managed in section 3)<br>
+                            Required – choose the best fit
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            <strong>Exhibition Location</strong><br>
+                            Optional – physical place (e.g. "Hall B, Floor 2") or note if fully virtual
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            <strong>Virtual Tour Link</strong><br>
+                            Optional – paste link to 360° tour (e.g. Matterport, Kuula)<br>
+                            If provided, visitors can explore interactively
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            <strong>Description *</strong><br>
+                            Write detailed intro using rich text editor<br>
+                            Explain theme, importance, what visitors will see<br>
+                            Required field
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            <strong>Media – Cover / Hero Image</strong><br>
+                            Click or drag to upload one main cover image<br>
+                            Recommended: 1200×600px, JPG/PNG/WEBP, max 4MB<br>
+                            This is the main visual shown on listings
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            <strong>Gallery Images</strong><br>
+                            Click or drag to upload multiple images (max 4MB each)<br>
+                            These appear as a photo gallery in the exhibition
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            <strong>Artifacts</strong><br>
+                            Click <strong>+ Add Artifact</strong> button (repeat for each item)<br>
+                            For each artifact:
+                            • Name * (e.g. "Ancient Tamil Coin")<br>
+                            • Image (upload one per artifact)<br>
+                            • Description (brief text)<br>
+                            • File / Physical Location (optional – PDF scan or "Case 3, Room A")<br>
+                            Artifacts are the main "exhibits" visitors see
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            Scroll to bottom → click black <strong>Publish Exhibition</strong> button<br>
+                            Fields marked * are required<br>
+                            Success → new virtual exhibition created and ready for public view (if published)
+                        </li>
+                    </ol>
+
+                    <div class="tips-box">
+                        <i class="fas fa-lightbulb fa-2x"></i> <strong>Tips for Virtual Exhibitions:</strong>
+                        <ul class="mb-0">
+                            <li>Use high-quality images — 1200×600px for cover, clear photos for gallery/artifacts</li>
+                            <li>Add rich description — include historical context, fun facts, sources</li>
+                            <li>Use virtual tour link if possible — makes experience interactive (Matterport, etc.)</li>
+                            <li>Add 5–15 artifacts per exhibition — not too few (empty) or too many (overwhelming)</li>
+                            <li>Fill all * fields — cannot save without them</li>
+                        </ul>
+                    </div>
+
+                                       <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture37.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="Add Virtual Exhibition Interface">
+                     <img src="./image/Capture38.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="Add Virtual Exhibition Interface">
+
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the "Add Virtual Exhibition"
+        </figcaption>
+    </figure>
+</div>
+                </div>
+
+                <!-- 2. View Virtual Exhibition -->
+<div class="sub-section">
+    <h4><i class="fas fa-eye text-primary fa-2x"></i> 2. View Virtual Exhibition – See, Edit & Delete Existing Exhibitions</h4>
+    
+    <p class="mb-4 fw-bold fs-5">What this section is for:</p>
+    <p style="font-size: 1.15rem;">
+        This is the main listing page where you see all virtual exhibitions you have created.<br>
+        You can:
+        - View the full list (with search and category filter)
+        - Open any exhibition to see full details (cover, gallery, artifacts, description, tour link)
+        - Edit existing exhibitions (change title, images, artifacts, etc.)
+        - Delete exhibitions you no longer need<br><br>
+        Currently empty ("No exhibitions found") because none have been created yet — click "Create First Exhibition" or "+ New Exhibition" to start adding.
+    </p>
+
+    <p class="mb-4 fw-bold fs-5">How to reach this page</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Left menu → click <strong>Virtual Exhibition</strong> (expand with arrow ▶ if needed)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            In sub-menu → click <strong>View Virtual Exhibition</strong><br>
+            (or sometimes just clicking "Virtual Exhibition" takes you directly here)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Page loads with title: <strong>Virtual Exhibitions</strong>
+        </li>
+    </ol>
+
+    <p class="mb-4 fw-bold fs-5">What you see when there are no exhibitions (empty state)</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Top right blue button: <strong>+ New Exhibition</strong> (same as Add Virtual Exhibition form)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Search bar: "Search by title..." (inactive when empty)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Category dropdown: "All Categories" (inactive when empty)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Blue <strong>Filter</strong> button and × clear button (inactive)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Main area:
+            • Large folder/archive icon in center<br>
+            • Text: "No exhibitions found."<br>
+            • Blue button below: <strong>Create First Exhibition</strong> (takes you to Add form)
+        </li>
+    </ol>
+
+                                           <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture39.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="view Virtual Exhibition Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the "Virtual Exhibition" list page 
+        </figcaption>
+    </figure>
+</div>
+
+
+    <p class="mb-4 fw-bold fs-5 mt-5">What happens when exhibitions exist</p>
+    <p style="font-size: 1.1rem;">
+        Once you add exhibitions, the page shows a table or card list instead of "No exhibitions found".<br>
+        Each entry typically includes:
+    </p>
+    <ul style="font-size: 1.1rem;" class="mb-4">
+        <li>Title (clickable to view details)</li>
+        <li>Category</li>
+        <li>Cover image thumbnail</li>
+        <li>Gallery images count</li>
+        <li>Artifacts count</li>
+        <li>Status (Published / Draft)</li>
+        <li>Actions buttons:
+            <ul>
+                <li>View / Open details</li>
+                <li>Edit (pencil icon)</li>
+                <li>Delete (trash icon)</li>
+                <li>Publish / Unpublish (if draft)</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p class="mb-4 fw-bold fs-5">How to manage exhibitions – Step-by-step</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Search & Filter</strong><br>
+            Type title in search box → list updates instantly<br>
+            Select category from dropdown → shows only matching exhibitions<br>
+            Click <strong>Filter</strong> → apply<br>
+            Click × to clear filter
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>View details</strong><br>
+            Click exhibition title or eye/view icon → opens full detail page<br>
+            Shows: cover image, description, gallery images, artifacts list (with names/images/descriptions), virtual tour link (if added)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg text-primary"></i> 
+            <strong>Edit exhibition</strong><br>
+            Click pencil/Edit icon → opens edit form (almost same as Add form, pre-filled)<br>
+            Change title, category, images, description, add/remove artifacts, update tour link<br>
+            Save → changes apply immediately
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg text-danger"></i> 
+            <strong>Delete exhibition</strong><br>
+            Click trash/Delete icon → confirmation popup appears<br>
+            Message: "Are you sure you want to delete this exhibition?"<br>
+            Red warning: "This action cannot be undone."<br>
+            Buttons: Cancel or Yes, Delete<br>
+            If confirmed → exhibition removed permanently (all images, artifacts gone)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Create new from this page</strong><br>
+            Click <strong>+ New Exhibition</strong> (top right) or <strong>Create First Exhibition</strong> (center when empty)<br>
+            Takes you directly to Add Virtual Exhibition form
+        </li>
+    </ol>
+
+    <div class="tips-box mt-5">
+        <i class="fas fa-lightbulb fa-2x"></i> <strong>Helpful Tips for Viewing/Managing Exhibitions:</strong>
+        <ul class="mb-0" style="font-size: 1.1rem;">
+            <li>Start by creating 1–2 exhibitions to see how the list looks</li>
+            <li>Use search often — especially when you have many exhibitions</li>
+            <li>Filter by category to manage related exhibitions together</li>
+            <li>Before deleting — consider setting to draft/hidden instead</li>
+            <li>Check detail page after edit — preview how visitors will see it</li>
+            <li>Add virtual tour link — greatly improves user experience</li>
+        </ul>
+    </div>
+
+    <div class="warning-box mt-5">
+        <i class="fas fa-exclamation-triangle fa-2x"></i> <strong>Important Warnings:</strong>
+        <ul class="mb-0" style="font-size: 1.1rem;">
+            <li>Deleting an exhibition removes all associated images, gallery, artifacts — permanent</li>
+            <li>Do NOT delete active/public exhibitions without backup plan</li>
+            <li>If many exhibitions → organize with good categories early</li>
+            <li>Private/draft exhibitions are not visible to public — use for testing</li>
+            <li>Virtual tour links must be valid — broken links confuse visitors</li>
+        </ul>
+    </div>
+
+    <div class="placeholder-img mt-5">
+        [Screenshot of "Virtual Exhibitions" page after adding some – table/list with titles, categories, thumbnails, and actions. Also capture "Create First Exhibition" button in empty state if still relevant]
+    </div>
+</div>
+                <!-- 3. Manage Exhibition Category -->
+<div class="sub-section">
+    <h4><i class="fas fa-tags text-info fa-2x"></i> 3. Manage Exhibition Category – Control Virtual Exhibition Categories</h4>
+    
+    <p class="mb-4 fw-bold fs-5">What this section is for:</p>
+    <p style="font-size: 1.15rem;">
+        This page lets you create, edit, or delete the categories used in the dropdown when adding or editing virtual exhibitions.<br><br>
+        Categories help organize exhibitions (e.g. "Art", "History", "Culture", "Ancient Artifacts").<br>
+        Each category can have an optional image (shown in listings).<br>
+        Good category management makes it easier for visitors to browse exhibitions on the public website.
+    </p>
+
+    <p class="mb-4 fw-bold fs-5">How to open this page</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Left menu → click <strong>Virtual Exhibition</strong> (expand with arrow ▶ if needed)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            In sub-menu → click <strong>Mange Exhibition Catogry</strong><br>
+            (Note: "Mange" and "Catogry" are typos in your system — it means "Manage Exhibition Category")
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Page loads with title: <strong>Exhibition Categories</strong><br>
+            Subtitle: "Manage categories for your virtual exhibitions"
+        </li>
+    </ol>
+
+    <p class="mb-4 fw-bold fs-5">What you see on the main screen</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Top stats cards:<br>
+            • <strong>Total Categories</strong> (e.g. 5)<br>
+            • <strong>Showing This Page</strong> (e.g. 5)<br>
+            • <strong>Total Exhibitions</strong> (e.g. 0 — across all categories)<br>
+            • <strong>Active Categories</strong> (e.g. 0 — perhaps categories with exhibitions)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Blue button top right: <strong>+ Add Category</strong> (opens popup to create new)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Search box: "Search categories by name..."<br>
+            Type any word (e.g. "தமிழ்") → list filters instantly
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Main table: "All Categories"<br>
+            Columns:
+            <ul class="mt-2">
+                <li><strong>#</strong> → serial number (1, 2, 3...)</li>
+                <li><strong>Image</strong> → small thumbnail of category image (if uploaded)</li>
+                <li><strong>Category Name</strong> → name (e.g. "அருங்காட்சியகம்", "தமிழ் கலை & கலாசாரம்")</li>
+                <li><strong>Exhibitions</strong> → count of exhibitions using this category (e.g. 0)</li>
+                <li><strong>Actions</strong> → three buttons per row:
+                    <ul>
+                        <li><i class="fas fa-edit action-icon text-primary"></i> Edit (pencil icon)</li>
+                        <li><i class="fas fa-trash-alt action-icon text-danger"></i> Delete (trash icon)</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ol>
+                                               <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture40.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt=" Virtual Exhibition  Categories Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the"Exhibition Categories" main page
+        </figcaption>
+    </figure>
+</div>
+
+
+    <p class="mb-4 fw-bold fs-5 mt-5">Adding a New Exhibition Category</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Click blue <strong>+ Add Category</strong> button (top right)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Popup modal opens: title <strong>Add Category</strong> (or similar)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Field: <strong>Category Name *</strong><br>
+            Type unique name (e.g. "பண்டைய தமிழ் கலை", "வரலாறு & பாரம்பரியம்")<br>
+            Required – must be unique, max 255 characters
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Optional: <strong>Category Image</strong><br>
+            Click "Choose file" → upload thumbnail (JPG, PNG, GIF, WEBP – max 2MB)<br>
+            Shown next to category name in listings
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Click blue <strong>Add Category</strong> (or Save) button<br>
+            OR <strong>Cancel</strong>
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            After adding: popup closes → new category appears in table (with image if uploaded)
+        </li>
+    </ol>
+
+                                                   <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture41.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt=" Add Virtual Exhibition  Categories Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the "Add Category" popup for exhibition
+        </figcaption>
+    </figure>
+</div>
+
+
+    <p class="mb-4 fw-bold fs-5 mt-5">Editing an Existing Exhibition Category</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            In table → click blue pencil icon <i class="fas fa-edit"></i> next to category
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Popup opens: title <strong>Edit Category</strong>
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Category Name *</strong> → pre-filled, change if needed (must stay unique)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            <strong>Category Image (optional)</strong><br>
+            Shows "Current image" preview (if exists)<br>
+            • Check "Remove" or trash icon to delete current image<br>
+            • "Choose file" → upload new image (max 2MB)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Click blue <strong>Save Changes</strong> button<br>
+            OR <strong>Cancel</strong>
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            After saving: table updates instantly (new name/image shown)
+        </li>
+    </ol>
+
+                                                       <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture42.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt=" Edit Exhibition  Categories Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the "Edit Category" popup for exhibition
+        </figcaption>
+    </figure>
+</div>
+
+
+    <p class="mb-4 fw-bold fs-5 mt-5">Deleting an Exhibition Category</p>
+    <ol class="list-unstyled">
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            In table → click red trash icon <i class="fas fa-trash-alt text-danger"></i> next to category
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg warning"></i> 
+            Confirmation popup opens
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Message: "Are you sure you want to delete this category?" (or similar)
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg warning"></i> 
+            Red warning: "This action cannot be undone. Exhibitions using this category may be affected."
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            Buttons: <strong>Cancel</strong> or <strong>Yes, Delete</strong>
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+            If Yes → category removed from table and dropdown
+        </li>
+        <li class="mb-5">
+            <i class="fas fa-check-circle step-icon fa-lg warning"></i> 
+            <strong>Important effect:</strong><br>
+            • Any exhibitions using this category may show blank category<br>
+            • Public website exhibition filters/dropdowns update instantly
+        </li>
+    </ol>
+    <div class="warning-box mt-4">
+        <i class="fas fa-exclamation-triangle fa-2x"></i> 
+        <strong>Very important warning:</strong><br>
+        Do NOT delete a category unless you first re-categorize all exhibitions using it.<br>
+        Deleting breaks organization — use only when necessary.
+    </div>
+
+                                                           <div class="placeholder-img mt-4">
+    <figure class="figure">
+        <img src="./image/Capture43.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt=" delete Exhibition  Categories Interface">
+        <figcaption class="figure-caption text-center">
+            Full screenshot of the "delete Category" popup for exhibition
+        </figcaption>
+    </figure>
+</div>
+
+
+
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+     <!-- /virtual exhibition  section -->
+
+
+     <!-- Enquiries  -->
+<div class="modal fade" id="modalEnquiries" tabindex="-1">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fas fa-envelope-open-text me-3"></i> Enquiries – Extremely Detailed Guide</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="alert alert-primary mb-5 p-4" style="font-size: 1.2rem; border-left-width: 8px;">
+                    <i class="fas fa-info-circle me-3 fa-2x float-start mt-1"></i>
+                    <strong>What is the Enquiries section?</strong><br><br>
+                    This section shows all messages/enquiries submitted by visitors through the public website's contact form.<br>
+                    Each enquiry includes: name, email, subject, message, date, and status (Pending, Read, Replied, etc.).<br>
+                    You (Admin) can view full details, reply (if system allows), change status, or mark as handled.<br>
+                    Currently shows 1 pending enquiry — check regularly as the badge shows "12" unread/new.
+                </div>
+
+                <p class="lead text-center mb-5" style="font-size: 1.4rem;">
+                    <i class="fas fa-envelope me-3"></i>
+                    Enquiries has **one main view** (All Enquiries list) — no separate sub-sections.
+                </p>
+
+                <div class="sub-section">
+                    <h4><i class="fas fa-list text-primary fa-2x"></i> All Enquiries – View, Manage & Reply to User Messages</h4>
+                    
+                    <p class="mb-4 fw-bold fs-5">What this page does:</p>
+                    <p style="font-size: 1.15rem;">
+                        This is the central dashboard for all incoming enquiries from the public website.<br>
+                        You can:
+                        - See a table of all messages
+                        - Filter/search by name, email, subject, status, date
+                        - View full message content
+                        - Change status (e.g. Pending → Replied)
+                        - Reply directly (if integrated) or note actions taken
+                    </p>
+
+                    <p class="mb-4 fw-bold fs-5">How to open this page</p>
+                    <ol class="list-unstyled">
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            Left sidebar → look for <strong>Enquiries</strong> (envelope icon)<br>
+                            It shows a blue badge with number (e.g. 12) for unread/new messages
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            Click <strong>Enquiries</strong> → page opens directly
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            Title: <strong>All Enquiries (X)</strong> — X is total number (e.g. 1 in screenshot)
+                        </li>
+                    </ol>
+
+                    <p class="mb-4 fw-bold fs-5">What you see on the main screen</p>
+                    <ol class="list-unstyled">
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            Page title: <strong>All Enquiries (X)</strong> — shows total count
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            Main table columns:
+                            <ul class="mt-2">
+                                <li><strong>#</strong> → serial number (1, 2, 3...)</li>
+                                <li><strong>Name</strong> → sender's name (e.g. "RobertPed")</li>
+                                <li><strong>Email</strong> → sender's email (clickable?)</li>
+                                <li><strong>Subject</strong> → enquiry topic (e.g. "General")</li>
+                                <li><strong>Status</strong> → dropdown or badge (e.g. Pending, Read, Replied)</li>
+                                <li><strong>Date</strong> → submission date/time (e.g. 27 Feb 2026, 11:11 PM)</li>
+                                <li><strong>Actions</strong> → buttons:
+                                    <ul>
+                                        <li><strong>View</strong> (blue eye icon or button) — opens full message</li>
+                                        <li>Possibly Reply, Mark as Read, Delete (depending on system)</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            Example row (from screenshot):
+                            <ul>
+                                <li>#1</li>
+                                <li>Name: RobertPed</li>
+                                <li>Email: zekisuqoc419@gmail.com</li>
+                                <li>Subject: General</li>
+                                <li>Status: Pending (dropdown)</li>
+                                <li>Date: 27 Feb 2026, 11:11 PM</li>
+                                <li>Actions: [View]</li>
+                            </ul>
+                        </li>
+                    </ol>
+    <figure class="figure">
+        <img src="image/Capture1.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="Admin Login Interface">
+        <figcaption class="figure-caption text-center">
+            Full view of the "All Enquiries" page
+        </figcaption>
+    </figure>
+</div>
+
+                    <p class="mb-4 fw-bold fs-5 mt-5">How to handle an enquiry – Step-by-step</p>
+                    <ol class="list-unstyled">
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            <strong>Find the enquiry</strong><br>
+                            Scroll table or use browser search (Ctrl+F) for name/email/subject
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            <strong>View full details</strong><br>
+                            Click blue <strong>View</strong> button (or eye icon) on row<br>
+                            Opens popup or new page showing:
+                            • Sender name & email
+                            • Subject
+                            • Full message text
+                            • Submission date/time
+                            • Possibly IP/location (if logged)
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg text-success"></i> 
+                            <strong>Reply to the enquiry</strong><br>
+                            If system has reply button/form:
+                            • Click Reply (or similar)
+                            • Type response in editor
+                            • Send → status may auto-change to "Replied"
+                            If no built-in reply:
+                            • Copy email → open your email client
+                            • Reply manually → then update status here
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            <strong>Update status</strong><br>
+                            Click dropdown in Status column (or in detail view):<br>
+                            • Pending → Read / In Progress<br>
+                            • In Progress → Replied / Resolved<br>
+                            • Replied → Closed<br>
+                            Save → table updates instantly
+                        </li>
+                        <li class="mb-5">
+                            <i class="fas fa-check-circle step-icon fa-lg"></i> 
+                            <strong>Delete or archive (if needed)</strong><br>
+                            If option exists (trash icon in actions):<br>
+                            Click → confirm "Are you sure?"<br>
+                            Use sparingly — better to mark as Closed
+                        </li>
+                    </ol>
+
+                    <div class="tips-box mt-5">
+                        <i class="fas fa-lightbulb fa-2x"></i> <strong>Helpful Tips for Managing Enquiries:</strong>
+                        <ul class="mb-0" style="font-size: 1.1rem;">
+                            <li>Check daily — badge shows unread count (e.g. 12)</li>
+                            <li>Reply within 24–48 hours — builds trust with visitors</li>
+                            <li>For general enquiries → direct to relevant page/section</li>
+                            <li>Spam or inappropriate → mark as Closed or delete</li>
+                            <li>Keep records — note replies in status/comments if possible</li>
+                            <li>If many enquiries → categorize (if system adds tags)</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box mt-5">
+                        <i class="fas fa-exclamation-triangle fa-2x"></i> <strong>Important Warnings:</strong>
+                        <ul class="mb-0" style="font-size: 1.1rem;">
+                            <li>Never share sender email/phone publicly</li>
+                            <li>Be professional & polite in replies — represents organization</li>
+                            <li>If sensitive (complaints, personal info) → handle privately</li>
+                            <li>Do NOT ignore Pending enquiries — users may follow up</li>
+                            <li>Backup/export enquiries regularly (if export option exists)</li>
+                        </ul>
+                    </div>
+
+    <figure class="figure">
+        <img src="image/Capture2.PNG" 
+             class="figure-img img-fluid rounded" 
+             alt="Admin Login Interface">
+        <figcaption class="figure-caption text-center">
+            Full view of the "View Enquiries Details" page
+        </figcaption>
+    </figure>
+</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+  <!-- /Enquiries  -->
+        <footer>
+            <p><i class="fas fa-copyright me-2"></i> Tamil Information Centre Master Admin Guide • Updated March 2026</p>
+            <p><i class="fas fa-phone-alt me-2"></i> Need help? WhatsApp or email the website owner</p>
+        </footer>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
